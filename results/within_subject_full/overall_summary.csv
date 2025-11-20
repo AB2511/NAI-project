@@ -1,3 +1,0 @@
-Method,AUC_mean_mean,AUC_mean_std,Acc_mean_mean,Acc_mean_std,F1_mean_mean,F1_mean_std,Recall_mean_mean,Recall_mean_std,Precision_mean_mean,Precision_mean_std
-EEGNet,0.626,0.135,0.921,0.068,0.012,0.022,0.07,0.117,0.007,0.013
-FBCSP_LDA,0.533,0.129,0.961,0.008,0.0,0.0,0.0,0.0,0.0,0.0

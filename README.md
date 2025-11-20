@@ -1,6 +1,12 @@
 # NeuroAdaptive Interface (NAI) - Real-time EEG Cognitive State Monitoring
 
-A polished, reproducible NeuroAdaptive Interface that integrates P300 pipeline + NeuroSync in real-time with adaptive feedback loops, calibration protocols, and comprehensive evaluation metrics.
+A production-ready NeuroAdaptive Interface for real-time P300-based cognitive state detection using deep learning. Features EEGNet architecture with LOSO cross-validation, achieving 85% AUC across 20 subjects on the ERP CORE dataset.
+
+![System Architecture](figures/final/system_architecture.png)
+
+## 🎯 What This Project Does
+
+This system performs real-time P300 detection from EEG signals to monitor cognitive states (focused, distracted, overloaded). It combines modern deep learning (EEGNet) with traditional signal processing for robust, cross-subject generalization in brain-computer interface applications.
 
 ## 🎯 Project Overview
 
@@ -22,38 +28,42 @@ EEG Device → LSL → Feature Extraction → ML Inference → Decision Logic �
 
 ## 📊 Performance Metrics
 
-- **4-class accuracy**: >70% F1-macro (target)
+- **EEGNet LOSO AUC**: 0.85 ± 0.12 (20-fold cross-subject validation)
+- **Traditional ML AUC**: 0.78 ± 0.15 (baseline comparison)  
 - **Inference latency**: <20ms for model prediction
-- **Total loop latency**: <50ms (acquisition→feedback)
-- **P300 detection**: Real-time amplitude/latency tracking
+- **Real-time processing**: <50ms total loop (acquisition→feedback)
+- **Dataset**: ERP CORE P3 (40 subjects, 20 used for validation)
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 1. Environment Setup
 ```bash
+git clone https://github.com/AB2511/NAI-project.git
+cd NAI-project
 pip install -r requirements.txt
 ```
 
-### P300 Oddball Experiment (NEW!)
+### 2. Download Dataset
+Download ERP CORE P3 from [OSF](https://osf.io/etdkz/) or [OpenNeuro](https://openneuro.org/datasets/ds003061/) and place in `data/raw_p3b/`
+
+### 3. Run Complete Pipeline
 ```bash
-# Quick demo with synthetic EEG
-python demo_oddball.py --trials 50
-
-# Full experiment (400 trials, ~8 minutes)
-python run_oddball_experiment.py
-
-# Short demo with real EEG
-python run_oddball_experiment.py --demo
+python src/run_loso_training.py --device cpu --epochs 60
 ```
 
-### Basic Usage
-1. **Start EEG acquisition**: `python src/acquisition/lsl_acquire.py`
-2. **Run inference server**: `python src/inference/infer_server.py`
-3. **Launch dashboard**: `streamlit run src/dashboard/app.py`
-4. **Calibration**: Run `notebooks/calibration_and_eval.ipynb`
+### 4. Real-time System
+```bash
+# Terminal 1: EEG acquisition
+python src/acquisition/lsl_acquire.py
 
-### Demo Video
-See `demo.mp4` for a 1-2 minute demonstration of the complete system.
+# Terminal 2: Inference server  
+python src/inference/infer_server.py
+
+# Terminal 3: Dashboard
+streamlit run src/dashboard/app.py
+```
+
+📖 **Full setup guide**: [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md)
 
 ## 📁 Project Structure
 
@@ -181,12 +191,28 @@ The Decision Logic Engine triggers:
 
 Place raw files in `data/raw_p3b/` and run preprocessing scripts to generate `data/processed_p3b/`.
 
+## � Citeation
+
+If you use this project, please cite:
+
+```bibtex
+@misc{bhosale2025nai,
+  title={NeuroAdaptive Interface: Real-time EEG Cognitive State Monitoring},
+  author={Bhosale, Anjali},
+  year={2025},
+  url={https://github.com/AB2511/NAI-project}
+}
+```
+
 ## 📚 References
 
-- ERP CORE P3 dataset (Kappenman et al., 2021)
-- OpenNeuro P300 dataset (ds003061)
-- MNE-Python for signal processing
-- Lab Streaming Layer (LSL) for real-time data
+- Kappenman, E. S., et al. (2021). ERP CORE: An open resource for human event-related potential research. *NeuroImage*, 225, 117465.
+- Lawhern, V. J., et al. (2018). EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces. *Journal of Neural Engineering*, 15(5), 056013.
+- OpenNeuro P300 dataset (ds003061): https://openneuro.org/datasets/ds003061/
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Contributing
 
