@@ -1,0 +1,654 @@
+{
+  "summary": {
+    "n_folds": 20,
+    "acc_mean": 0.7754688243187369,
+    "acc_std": 0.13423066363582517,
+    "auc_mean": 0.5229102492765041,
+    "auc_std": 0.13002142668989827,
+    "f1_mean": 0.06931493556691917,
+    "per_subject": [
+      {
+        "subject": "sub-001",
+        "acc": 0.61,
+        "auc": 0.5070318282753516,
+        "f1": 0.04878048780487805,
+        "recall": 0.2857142857142857,
+        "precision": 0.02666666666666667
+      },
+      {
+        "subject": "sub-002",
+        "acc": 0.9,
+        "auc": 0.3435897435897436,
+        "f1": 0.09090909090909091,
+        "recall": 0.2,
+        "precision": 0.058823529411764705
+      },
+      {
+        "subject": "sub-003",
+        "acc": 0.895,
+        "auc": 0.5852631578947369,
+        "f1": 0.16,
+        "recall": 0.2,
+        "precision": 0.13333333333333333
+      },
+      {
+        "subject": "sub-004",
+        "acc": 0.585,
+        "auc": 0.36588541666666663,
+        "f1": 0.023529411764705882,
+        "recall": 0.125,
+        "precision": 0.012987012987012988
+      },
+      {
+        "subject": "sub-005",
+        "acc": 0.755,
+        "auc": 0.7259114583333333,
+        "f1": 0.14035087719298245,
+        "recall": 0.5,
+        "precision": 0.08163265306122448
+      },
+      {
+        "subject": "sub-006",
+        "acc": 0.5888324873096447,
+        "auc": 0.6911375661375662,
+        "f1": 0.10989010989010989,
+        "recall": 0.625,
+        "precision": 0.060240963855421686
+      },
+      {
+        "subject": "sub-007",
+        "acc": 0.835,
+        "auc": 0.572265625,
+        "f1": 0.05714285714285714,
+        "recall": 0.125,
+        "precision": 0.037037037037037035
+      },
+      {
+        "subject": "sub-008",
+        "acc": 0.8994974874371859,
+        "auc": 0.6354712041884817,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "subject": "sub-009",
+        "acc": 0.936046511627907,
+        "auc": 0.49297188755020077,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "subject": "sub-010",
+        "acc": 0.61,
+        "auc": 0.504088504088504,
+        "f1": 0.09302325581395349,
+        "recall": 0.36363636363636365,
+        "precision": 0.05333333333333334
+      },
+      {
+        "subject": "sub-011",
+        "acc": 0.61,
+        "auc": 0.5319010416666666,
+        "f1": 0.09302325581395349,
+        "recall": 0.5,
+        "precision": 0.05128205128205128
+      },
+      {
+        "subject": "sub-012",
+        "acc": 0.65,
+        "auc": 0.4559585492227979,
+        "f1": 0.05405405405405406,
+        "recall": 0.2857142857142857,
+        "precision": 0.029850746268656716
+      },
+      {
+        "subject": "sub-013",
+        "acc": 0.805,
+        "auc": 0.5840118430792005,
+        "f1": 0.09302325581395349,
+        "recall": 0.2857142857142857,
+        "precision": 0.05555555555555555
+      },
+      {
+        "subject": "sub-014",
+        "acc": 0.96,
+        "auc": 0.6868489583333333,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "subject": "sub-015",
+        "acc": 0.82,
+        "auc": 0.4699312714776632,
+        "f1": 0.05263157894736842,
+        "recall": 0.16666666666666666,
+        "precision": 0.03125
+      },
+      {
+        "subject": "sub-016",
+        "acc": 0.71,
+        "auc": 0.6094736842105264,
+        "f1": 0.09375,
+        "recall": 0.3,
+        "precision": 0.05555555555555555
+      },
+      {
+        "subject": "sub-017",
+        "acc": 0.935,
+        "auc": 0.5962199312714777,
+        "f1": 0.13333333333333333,
+        "recall": 0.16666666666666666,
+        "precision": 0.1111111111111111
+      },
+      {
+        "subject": "sub-018",
+        "acc": 0.71,
+        "auc": 0.19794871794871796,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "subject": "sub-019",
+        "acc": 0.94,
+        "auc": 0.5129533678756476,
+        "f1": 0.14285714285714285,
+        "recall": 0.14285714285714285,
+        "precision": 0.14285714285714285
+      },
+      {
+        "subject": "sub-020",
+        "acc": 0.755,
+        "auc": 0.3893412287194671,
+        "f1": 0.0,
+        "recall": 0.0,
+        "precision": 0.0
+      }
+    ]
+  },
+  "folds": [
+    {
+      "subject": "sub-001",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5070318282753516,
+        "precision": 0.02666666666666667,
+        "recall": 0.2857142857142857,
+        "f1": 0.04878048780487805,
+        "acc": 0.61,
+        "confusion_matrix": [
+          [
+            120,
+            73
+          ],
+          [
+            5,
+            2
+          ]
+        ]
+      },
+      "best_epoch": 2,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-001.pth"
+    },
+    {
+      "subject": "sub-002",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.3435897435897436,
+        "precision": 0.058823529411764705,
+        "recall": 0.2,
+        "f1": 0.09090909090909091,
+        "acc": 0.9,
+        "confusion_matrix": [
+          [
+            179,
+            16
+          ],
+          [
+            4,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 3,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-002.pth"
+    },
+    {
+      "subject": "sub-003",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5852631578947369,
+        "precision": 0.13333333333333333,
+        "recall": 0.2,
+        "f1": 0.16,
+        "acc": 0.895,
+        "confusion_matrix": [
+          [
+            177,
+            13
+          ],
+          [
+            8,
+            2
+          ]
+        ]
+      },
+      "best_epoch": 1,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-003.pth"
+    },
+    {
+      "subject": "sub-004",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.36588541666666663,
+        "precision": 0.012987012987012988,
+        "recall": 0.125,
+        "f1": 0.023529411764705882,
+        "acc": 0.585,
+        "confusion_matrix": [
+          [
+            116,
+            76
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 3,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-004.pth"
+    },
+    {
+      "subject": "sub-005",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.7259114583333333,
+        "precision": 0.08163265306122448,
+        "recall": 0.5,
+        "f1": 0.14035087719298245,
+        "acc": 0.755,
+        "confusion_matrix": [
+          [
+            147,
+            45
+          ],
+          [
+            4,
+            4
+          ]
+        ]
+      },
+      "best_epoch": 5,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-005.pth"
+    },
+    {
+      "subject": "sub-006",
+      "n_train": 3771,
+      "n_test": 197,
+      "metrics": {
+        "auc": 0.6911375661375662,
+        "precision": 0.060240963855421686,
+        "recall": 0.625,
+        "f1": 0.10989010989010989,
+        "acc": 0.5888324873096447,
+        "confusion_matrix": [
+          [
+            111,
+            78
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      },
+      "best_epoch": 14,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-006.pth"
+    },
+    {
+      "subject": "sub-007",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.572265625,
+        "precision": 0.037037037037037035,
+        "recall": 0.125,
+        "f1": 0.05714285714285714,
+        "acc": 0.835,
+        "confusion_matrix": [
+          [
+            166,
+            26
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 15,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-007.pth"
+    },
+    {
+      "subject": "sub-008",
+      "n_train": 3769,
+      "n_test": 199,
+      "metrics": {
+        "auc": 0.6354712041884817,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "acc": 0.8994974874371859,
+        "confusion_matrix": [
+          [
+            179,
+            12
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      },
+      "best_epoch": 12,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-008.pth"
+    },
+    {
+      "subject": "sub-009",
+      "n_train": 3796,
+      "n_test": 172,
+      "metrics": {
+        "auc": 0.49297188755020077,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "acc": 0.936046511627907,
+        "confusion_matrix": [
+          [
+            161,
+            5
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      },
+      "best_epoch": 2,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-009.pth"
+    },
+    {
+      "subject": "sub-010",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.504088504088504,
+        "precision": 0.05333333333333334,
+        "recall": 0.36363636363636365,
+        "f1": 0.09302325581395349,
+        "acc": 0.61,
+        "confusion_matrix": [
+          [
+            118,
+            71
+          ],
+          [
+            7,
+            4
+          ]
+        ]
+      },
+      "best_epoch": 5,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-010.pth"
+    },
+    {
+      "subject": "sub-011",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5319010416666666,
+        "precision": 0.05128205128205128,
+        "recall": 0.5,
+        "f1": 0.09302325581395349,
+        "acc": 0.61,
+        "confusion_matrix": [
+          [
+            118,
+            74
+          ],
+          [
+            4,
+            4
+          ]
+        ]
+      },
+      "best_epoch": 2,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-011.pth"
+    },
+    {
+      "subject": "sub-012",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.4559585492227979,
+        "precision": 0.029850746268656716,
+        "recall": 0.2857142857142857,
+        "f1": 0.05405405405405406,
+        "acc": 0.65,
+        "confusion_matrix": [
+          [
+            128,
+            65
+          ],
+          [
+            5,
+            2
+          ]
+        ]
+      },
+      "best_epoch": 6,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-012.pth"
+    },
+    {
+      "subject": "sub-013",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5840118430792005,
+        "precision": 0.05555555555555555,
+        "recall": 0.2857142857142857,
+        "f1": 0.09302325581395349,
+        "acc": 0.805,
+        "confusion_matrix": [
+          [
+            159,
+            34
+          ],
+          [
+            5,
+            2
+          ]
+        ]
+      },
+      "best_epoch": 9,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-013.pth"
+    },
+    {
+      "subject": "sub-014",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.6868489583333333,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "acc": 0.96,
+        "confusion_matrix": [
+          [
+            192,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      },
+      "best_epoch": 3,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-014.pth"
+    },
+    {
+      "subject": "sub-015",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.4699312714776632,
+        "precision": 0.03125,
+        "recall": 0.16666666666666666,
+        "f1": 0.05263157894736842,
+        "acc": 0.82,
+        "confusion_matrix": [
+          [
+            163,
+            31
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 4,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-015.pth"
+    },
+    {
+      "subject": "sub-016",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.6094736842105264,
+        "precision": 0.05555555555555555,
+        "recall": 0.3,
+        "f1": 0.09375,
+        "acc": 0.71,
+        "confusion_matrix": [
+          [
+            139,
+            51
+          ],
+          [
+            7,
+            3
+          ]
+        ]
+      },
+      "best_epoch": 1,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-016.pth"
+    },
+    {
+      "subject": "sub-017",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5962199312714777,
+        "precision": 0.1111111111111111,
+        "recall": 0.16666666666666666,
+        "f1": 0.13333333333333333,
+        "acc": 0.935,
+        "confusion_matrix": [
+          [
+            186,
+            8
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 3,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-017.pth"
+    },
+    {
+      "subject": "sub-018",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.19794871794871796,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "acc": 0.71,
+        "confusion_matrix": [
+          [
+            142,
+            53
+          ],
+          [
+            5,
+            0
+          ]
+        ]
+      },
+      "best_epoch": 2,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-018.pth"
+    },
+    {
+      "subject": "sub-019",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.5129533678756476,
+        "precision": 0.14285714285714285,
+        "recall": 0.14285714285714285,
+        "f1": 0.14285714285714285,
+        "acc": 0.94,
+        "confusion_matrix": [
+          [
+            187,
+            6
+          ],
+          [
+            6,
+            1
+          ]
+        ]
+      },
+      "best_epoch": 18,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-019.pth"
+    },
+    {
+      "subject": "sub-020",
+      "n_train": 3768,
+      "n_test": 200,
+      "metrics": {
+        "auc": 0.3893412287194671,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "acc": 0.755,
+        "confusion_matrix": [
+          [
+            151,
+            42
+          ],
+          [
+            7,
+            0
+          ]
+        ]
+      },
+      "best_epoch": 3,
+      "model_path": "results\\eegnet\\models\\eegnet_sub-020.pth"
+    }
+  ]
+}

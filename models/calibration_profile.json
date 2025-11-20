@@ -1,0 +1,1716 @@
+{
+    "p300_mean_amplitude_uv": 34.60585197914196,
+    "p300_mean_latency_ms": 352.234887295082,
+    "channel": "Pz",
+    "n_trials": 244,
+    "individual_trials": [
+        {
+            "trial": 0,
+            "amplitude_uV": 46.26823052546296,
+            "latency_ms": 355.46875,
+            "amp_smooth": 46.26823052546296,
+            "fatigue_index": 0.0
+        },
+        {
+            "trial": 1,
+            "amplitude_uV": 26.559910332175924,
+            "latency_ms": 351.5625,
+            "amp_smooth": 36.41407042881944,
+            "fatigue_index": 0.21297897033733426
+        },
+        {
+            "trial": 2,
+            "amplitude_uV": 24.791724557870367,
+            "latency_ms": 410.15625,
+            "amp_smooth": 32.53995513850308,
+            "fatigue_index": 0.2967106204635327
+        },
+        {
+            "trial": 3,
+            "amplitude_uV": 45.5022334927662,
+            "latency_ms": 382.8125,
+            "amp_smooth": 35.780524727068865,
+            "fatigue_index": 0.2266718584066525
+        },
+        {
+            "trial": 4,
+            "amplitude_uV": 29.550105782407407,
+            "latency_ms": 410.15625,
+            "amp_smooth": 34.53444093813657,
+            "fatigue_index": 0.2536035948223456
+        },
+        {
+            "trial": 5,
+            "amplitude_uV": 45.67899327546296,
+            "latency_ms": 332.03125,
+            "amp_smooth": 36.39186632769097,
+            "fatigue_index": 0.2134588698467017
+        },
+        {
+            "trial": 6,
+            "amplitude_uV": 45.85219866435185,
+            "latency_ms": 375.0,
+            "amp_smooth": 37.74334237578538,
+            "fatigue_index": 0.18424927975116856
+        },
+        {
+            "trial": 7,
+            "amplitude_uV": 30.495006120370366,
+            "latency_ms": 363.28125,
+            "amp_smooth": 36.8373003438585,
+            "fatigue_index": 0.20383165888339516
+        },
+        {
+            "trial": 8,
+            "amplitude_uV": 30.922438756944445,
+            "latency_ms": 324.21875,
+            "amp_smooth": 36.180093500868054,
+            "fatigue_index": 0.2180359376190768
+        },
+        {
+            "trial": 9,
+            "amplitude_uV": 29.459129196759257,
+            "latency_ms": 394.53125,
+            "amp_smooth": 35.50799707045717,
+            "fatigue_index": 0.232562026531014
+        },
+        {
+            "trial": 10,
+            "amplitude_uV": 28.006635328703705,
+            "latency_ms": 351.5625,
+            "amp_smooth": 33.681837550781246,
+            "fatigue_index": 0.27203099906219663
+        },
+        {
+            "trial": 11,
+            "amplitude_uV": 31.358629675925926,
+            "latency_ms": 328.125,
+            "amp_smooth": 34.161709485156244,
+            "fatigue_index": 0.2616594778493656
+        },
+        {
+            "trial": 12,
+            "amplitude_uV": 38.05761565509259,
+            "latency_ms": 351.5625,
+            "amp_smooth": 35.48829859487847,
+            "fatigue_index": 0.2329877716990264
+        },
+        {
+            "trial": 13,
+            "amplitude_uV": 35.91757657523148,
+            "latency_ms": 441.40625,
+            "amp_smooth": 34.529832903125,
+            "fatigue_index": 0.2537031887544938
+        },
+        {
+            "trial": 14,
+            "amplitude_uV": 32.26100740176504,
+            "latency_ms": 320.3125,
+            "amp_smooth": 34.80092306506076,
+            "fatigue_index": 0.24784408934963176
+        },
+        {
+            "trial": 15,
+            "amplitude_uV": 29.90836015046296,
+            "latency_ms": 414.0625,
+            "amp_smooth": 33.223859752560756,
+            "fatigue_index": 0.28192932007035476
+        },
+        {
+            "trial": 16,
+            "amplitude_uV": 39.74877709027778,
+            "latency_ms": 285.15625,
+            "amp_smooth": 32.61351759515336,
+            "fatigue_index": 0.29512070756185393
+        },
+        {
+            "trial": 17,
+            "amplitude_uV": 34.214766097222224,
+            "latency_ms": 332.03125,
+            "amp_smooth": 32.985493592838544,
+            "fatigue_index": 0.2870811522674177
+        },
+        {
+            "trial": 18,
+            "amplitude_uV": 32.17566014814815,
+            "latency_ms": 367.1875,
+            "amp_smooth": 33.11081573195891,
+            "fatigue_index": 0.28437255205303535
+        },
+        {
+            "trial": 19,
+            "amplitude_uV": 31.274864497974534,
+            "latency_ms": 375.0,
+            "amp_smooth": 33.29238926208044,
+            "fatigue_index": 0.28044818476992495
+        },
+        {
+            "trial": 20,
+            "amplitude_uV": 31.954977560185185,
+            "latency_ms": 363.28125,
+            "amp_smooth": 33.687223485228586,
+            "fatigue_index": 0.2719145923099572
+        },
+        {
+            "trial": 21,
+            "amplitude_uV": 49.088647111111115,
+            "latency_ms": 347.65625,
+            "amp_smooth": 35.460225228747106,
+            "fatigue_index": 0.23359452423337967
+        },
+        {
+            "trial": 22,
+            "amplitude_uV": 40.935705050925925,
+            "latency_ms": 390.625,
+            "amp_smooth": 35.748034168330435,
+            "fatigue_index": 0.22737408017674043
+        },
+        {
+            "trial": 23,
+            "amplitude_uV": 29.36772834519676,
+            "latency_ms": 375.0,
+            "amp_smooth": 35.09304934532697,
+            "fatigue_index": 0.241530334167111
+        },
+        {
+            "trial": 24,
+            "amplitude_uV": 42.38615854629629,
+            "latency_ms": 300.78125,
+            "amp_smooth": 36.1055644597801,
+            "fatigue_index": 0.21964674140909723
+        },
+        {
+            "trial": 25,
+            "amplitude_uV": 35.719484870370366,
+            "latency_ms": 355.46875,
+            "amp_smooth": 36.68667693177083,
+            "fatigue_index": 0.2070870980989662
+        },
+        {
+            "trial": 26,
+            "amplitude_uV": 38.68373832986111,
+            "latency_ms": 367.1875,
+            "amp_smooth": 36.58017305572917,
+            "fatigue_index": 0.2093889772681522
+        },
+        {
+            "trial": 27,
+            "amplitude_uV": 40.9430981261574,
+            "latency_ms": 355.46875,
+            "amp_smooth": 37.25300625862268,
+            "fatigue_index": 0.19484696441716953
+        },
+        {
+            "trial": 28,
+            "amplitude_uV": 32.05100012962963,
+            "latency_ms": 414.0625,
+            "amp_smooth": 37.24054025677083,
+            "fatigue_index": 0.19511639339057696
+        },
+        {
+            "trial": 29,
+            "amplitude_uV": 28.09758216688368,
+            "latency_ms": 316.40625,
+            "amp_smooth": 36.92281202366174,
+            "fatigue_index": 0.20198348619919926
+        },
+        {
+            "trial": 30,
+            "amplitude_uV": 32.01885407407408,
+            "latency_ms": 296.875,
+            "amp_smooth": 36.92919967505064,
+            "fatigue_index": 0.2018454292362173
+        },
+        {
+            "trial": 31,
+            "amplitude_uV": 27.808017973379627,
+            "latency_ms": 304.6875,
+            "amp_smooth": 34.80113676127748,
+            "fatigue_index": 0.24783947071143664
+        },
+        {
+            "trial": 32,
+            "amplitude_uV": 20.98308202777778,
+            "latency_ms": 296.875,
+            "amp_smooth": 32.80587445896268,
+            "fatigue_index": 0.29096327898451824
+        },
+        {
+            "trial": 33,
+            "amplitude_uV": 35.146802180555554,
+            "latency_ms": 378.90625,
+            "amp_smooth": 33.38378184249855,
+            "fatigue_index": 0.2784729075790713
+        },
+        {
+            "trial": 34,
+            "amplitude_uV": 36.587271692129626,
+            "latency_ms": 339.84375,
+            "amp_smooth": 32.80389315708188,
+            "fatigue_index": 0.29100610106477276
+        },
+        {
+            "trial": 35,
+            "amplitude_uV": 33.64530631915509,
+            "latency_ms": 343.75,
+            "amp_smooth": 32.59647530196035,
+            "fatigue_index": 0.2954890443882132
+        },
+        {
+            "trial": 36,
+            "amplitude_uV": 41.632281120370365,
+            "latency_ms": 429.6875,
+            "amp_smooth": 32.89132958101128,
+            "fatigue_index": 0.2891163286888597
+        },
+        {
+            "trial": 37,
+            "amplitude_uV": 39.38912463773148,
+            "latency_ms": 382.8125,
+            "amp_smooth": 32.735932232168686,
+            "fatigue_index": 0.29247494748793124
+        },
+        {
+            "trial": 38,
+            "amplitude_uV": 41.810531990740735,
+            "latency_ms": 367.1875,
+            "amp_smooth": 33.711885418279806,
+            "fatigue_index": 0.2713815714277852
+        },
+        {
+            "trial": 39,
+            "amplitude_uV": 34.18541988194444,
+            "latency_ms": 328.125,
+            "amp_smooth": 34.320669189785875,
+            "fatigue_index": 0.25822386549020804
+        },
+        {
+            "trial": 40,
+            "amplitude_uV": 39.66939155092593,
+            "latency_ms": 324.21875,
+            "amp_smooth": 35.08572293747106,
+            "fatigue_index": 0.24168868056965764
+        },
+        {
+            "trial": 41,
+            "amplitude_uV": 26.178278634259257,
+            "latency_ms": 308.59375,
+            "amp_smooth": 34.92274900355903,
+            "fatigue_index": 0.2452110528769873
+        },
+        {
+            "trial": 42,
+            "amplitude_uV": 34.378217633101855,
+            "latency_ms": 414.0625,
+            "amp_smooth": 36.26226256409143,
+            "fatigue_index": 0.21626000924900102
+        },
+        {
+            "trial": 43,
+            "amplitude_uV": 27.36168515509259,
+            "latency_ms": 308.59375,
+            "amp_smooth": 35.48375086154513,
+            "fatigue_index": 0.23308606232483364
+        },
+        {
+            "trial": 44,
+            "amplitude_uV": 44.21879902835648,
+            "latency_ms": 285.15625,
+            "amp_smooth": 36.24690359516782,
+            "fatigue_index": 0.2165919642157066
+        },
+        {
+            "trial": 45,
+            "amplitude_uV": 44.45242697222222,
+            "latency_ms": 367.1875,
+            "amp_smooth": 37.327615660474535,
+            "fatigue_index": 0.19323442378173739
+        },
+        {
+            "trial": 46,
+            "amplitude_uV": 35.78802958796296,
+            "latency_ms": 414.0625,
+            "amp_smooth": 36.74319050723379,
+            "fatigue_index": 0.2058656644106418
+        },
+        {
+            "trial": 47,
+            "amplitude_uV": 29.73278687037037,
+            "latency_ms": 324.21875,
+            "amp_smooth": 35.777556730497686,
+            "fatigue_index": 0.22673600602019794
+        },
+        {
+            "trial": 48,
+            "amplitude_uV": 38.848977670138886,
+            "latency_ms": 375.0,
+            "amp_smooth": 35.4814012984375,
+            "fatigue_index": 0.2331368436726602
+        },
+        {
+            "trial": 49,
+            "amplitude_uV": 28.154838429398147,
+            "latency_ms": 320.3125,
+            "amp_smooth": 34.87834315318287,
+            "fatigue_index": 0.24617080106428224
+        },
+        {
+            "trial": 50,
+            "amplitude_uV": 38.08985453240741,
+            "latency_ms": 421.875,
+            "amp_smooth": 34.720389451331016,
+            "fatigue_index": 0.24958467058248057
+        },
+        {
+            "trial": 51,
+            "amplitude_uV": 38.52273088773148,
+            "latency_ms": 265.625,
+            "amp_smooth": 35.95483467667823,
+            "fatigue_index": 0.22290447963228077
+        },
+        {
+            "trial": 52,
+            "amplitude_uV": 40.1441959537037,
+            "latency_ms": 347.65625,
+            "amp_smooth": 36.531432508738426,
+            "fatigue_index": 0.2104424116968564
+        },
+        {
+            "trial": 53,
+            "amplitude_uV": 32.968249943287034,
+            "latency_ms": 339.84375,
+            "amp_smooth": 37.09208898755787,
+            "fatigue_index": 0.1983248858599671
+        },
+        {
+            "trial": 54,
+            "amplitude_uV": 37.021403863425924,
+            "latency_ms": 253.90625,
+            "amp_smooth": 36.372349471064815,
+            "fatigue_index": 0.2138806896657115
+        },
+        {
+            "trial": 55,
+            "amplitude_uV": 30.832869303240734,
+            "latency_ms": 359.375,
+            "amp_smooth": 35.01039370416667,
+            "fatigue_index": 0.24331677899591875
+        },
+        {
+            "trial": 56,
+            "amplitude_uV": 35.26553478472222,
+            "latency_ms": 285.15625,
+            "amp_smooth": 34.95814422384259,
+            "fatigue_index": 0.2444460523597516
+        },
+        {
+            "trial": 57,
+            "amplitude_uV": 36.84484800318287,
+            "latency_ms": 382.8125,
+            "amp_smooth": 35.669350337123845,
+            "fatigue_index": 0.22907468187066715
+        },
+        {
+            "trial": 58,
+            "amplitude_uV": 32.59105607638889,
+            "latency_ms": 363.28125,
+            "amp_smooth": 35.043558177748835,
+            "fatigue_index": 0.2425999918353655
+        },
+        {
+            "trial": 59,
+            "amplitude_uV": 30.114697366898145,
+            "latency_ms": 429.6875,
+            "amp_smooth": 35.23954407149884,
+            "fatigue_index": 0.23836412866263956
+        },
+        {
+            "trial": 60,
+            "amplitude_uV": 37.51831396875,
+            "latency_ms": 378.90625,
+            "amp_smooth": 35.1823900151331,
+            "fatigue_index": 0.2395994051302427
+        },
+        {
+            "trial": 61,
+            "amplitude_uV": 34.29897553342014,
+            "latency_ms": 371.09375,
+            "amp_smooth": 34.760014479701965,
+            "fatigue_index": 0.24872825079030503
+        },
+        {
+            "trial": 62,
+            "amplitude_uV": 36.63549509201389,
+            "latency_ms": 300.78125,
+            "amp_smooth": 34.40914439353298,
+            "fatigue_index": 0.25631164185981836
+        },
+        {
+            "trial": 63,
+            "amplitude_uV": 30.697775320601853,
+            "latency_ms": 386.71875,
+            "amp_smooth": 34.18209693126447,
+            "fatigue_index": 0.2612188418908108
+        },
+        {
+            "trial": 64,
+            "amplitude_uV": 35.68756617592592,
+            "latency_ms": 382.8125,
+            "amp_smooth": 34.04871316251446,
+            "fatigue_index": 0.2641016789311553
+        },
+        {
+            "trial": 65,
+            "amplitude_uV": 27.065508891203702,
+            "latency_ms": 324.21875,
+            "amp_smooth": 33.67197712131076,
+            "fatigue_index": 0.27224411353315225
+        },
+        {
+            "trial": 66,
+            "amplitude_uV": 39.08435292679398,
+            "latency_ms": 324.21875,
+            "amp_smooth": 34.05385893551794,
+            "fatigue_index": 0.2639904628127727
+        },
+        {
+            "trial": 67,
+            "amplitude_uV": 29.281066679398144,
+            "latency_ms": 371.09375,
+            "amp_smooth": 33.297480803139464,
+            "fatigue_index": 0.28033814077210617
+        },
+        {
+            "trial": 68,
+            "amplitude_uV": 39.174261754629626,
+            "latency_ms": 390.625,
+            "amp_smooth": 33.95580137096354,
+            "fatigue_index": 0.2661097909876514
+        },
+        {
+            "trial": 69,
+            "amplitude_uV": 33.70495651388889,
+            "latency_ms": 351.5625,
+            "amp_smooth": 34.314827285662616,
+            "fatigue_index": 0.258350127161703
+        },
+        {
+            "trial": 70,
+            "amplitude_uV": 27.916386622685184,
+            "latency_ms": 320.3125,
+            "amp_smooth": 33.35463455105613,
+            "fatigue_index": 0.27910287097104447
+        },
+        {
+            "trial": 71,
+            "amplitude_uV": 30.222480773148146,
+            "latency_ms": 292.96875,
+            "amp_smooth": 32.946985075028934,
+            "fatigue_index": 0.28791344080260206
+        },
+        {
+            "trial": 72,
+            "amplitude_uV": 40.85068947685185,
+            "latency_ms": 410.15625,
+            "amp_smooth": 33.36850451351273,
+            "fatigue_index": 0.27880309805344894
+        },
+        {
+            "trial": 73,
+            "amplitude_uV": 37.719436458333334,
+            "latency_ms": 386.71875,
+            "amp_smooth": 34.07067062728588,
+            "fatigue_index": 0.26362710999860595
+        },
+        {
+            "trial": 74,
+            "amplitude_uV": 33.645922975549766,
+            "latency_ms": 371.09375,
+            "amp_smooth": 33.866506307248265,
+            "fatigue_index": 0.26803973433541206
+        },
+        {
+            "trial": 75,
+            "amplitude_uV": 26.39705435185185,
+            "latency_ms": 304.6875,
+            "amp_smooth": 33.79966085331308,
+            "fatigue_index": 0.2694844719702002
+        },
+        {
+            "trial": 76,
+            "amplitude_uV": 35.591206247685186,
+            "latency_ms": 402.34375,
+            "amp_smooth": 33.450346185402196,
+            "fatigue_index": 0.27703424562576806
+        },
+        {
+            "trial": 77,
+            "amplitude_uV": 24.696717796296294,
+            "latency_ms": 355.46875,
+            "amp_smooth": 32.99191129709202,
+            "fatigue_index": 0.286942445768799
+        },
+        {
+            "trial": 78,
+            "amplitude_uV": 29.07960508333333,
+            "latency_ms": 445.3125,
+            "amp_smooth": 31.98244562996238,
+            "fatigue_index": 0.3087601305098243
+        },
+        {
+            "trial": 79,
+            "amplitude_uV": 31.959094398148146,
+            "latency_ms": 281.25,
+            "amp_smooth": 31.80785941838831,
+            "fatigue_index": 0.3125334801623032
+        },
+        {
+            "trial": 80,
+            "amplitude_uV": 44.453442056712966,
+            "latency_ms": 363.28125,
+            "amp_smooth": 33.46156496179109,
+            "fatigue_index": 0.2767917730638939
+        },
+        {
+            "trial": 81,
+            "amplitude_uV": 31.580472747685185,
+            "latency_ms": 292.96875,
+            "amp_smooth": 33.59736415924479,
+            "fatigue_index": 0.2738567311158564
+        },
+        {
+            "trial": 82,
+            "amplitude_uV": 33.116538816767935,
+            "latency_ms": 320.3125,
+            "amp_smooth": 32.8239490932364,
+            "fatigue_index": 0.29057263006476375
+        },
+        {
+            "trial": 83,
+            "amplitude_uV": 37.80264657523148,
+            "latency_ms": 417.96875,
+            "amp_smooth": 32.83227010492622,
+            "fatigue_index": 0.29039278718779804
+        },
+        {
+            "trial": 84,
+            "amplitude_uV": 43.8677002962963,
+            "latency_ms": 355.46875,
+            "amp_smooth": 33.85444783700087,
+            "fatigue_index": 0.26830035528655827
+        },
+        {
+            "trial": 85,
+            "amplitude_uV": 32.30160406481481,
+            "latency_ms": 398.4375,
+            "amp_smooth": 34.444902808297165,
+            "fatigue_index": 0.255538791583115
+        },
+        {
+            "trial": 86,
+            "amplitude_uV": 31.7461664375,
+            "latency_ms": 253.90625,
+            "amp_smooth": 34.06039882727865,
+            "fatigue_index": 0.2638491154630591
+        },
+        {
+            "trial": 87,
+            "amplitude_uV": 37.70444722034143,
+            "latency_ms": 261.71875,
+            "amp_smooth": 35.36117176968316,
+            "fatigue_index": 0.23573537677818213
+        },
+        {
+            "trial": 88,
+            "amplitude_uV": 53.10797093055555,
+            "latency_ms": 339.84375,
+            "amp_smooth": 37.764008354405384,
+            "fatigue_index": 0.18380262384094026
+        },
+        {
+            "trial": 89,
+            "amplitude_uV": 36.858082126157406,
+            "latency_ms": 367.1875,
+            "amp_smooth": 38.253907127206304,
+            "fatigue_index": 0.1732143915433746
+        },
+        {
+            "trial": 90,
+            "amplitude_uV": 38.73721860185185,
+            "latency_ms": 351.5625,
+            "amp_smooth": 37.68228478172019,
+            "fatigue_index": 0.1855689237784366
+        },
+        {
+            "trial": 91,
+            "amplitude_uV": 44.59749452777777,
+            "latency_ms": 320.3125,
+            "amp_smooth": 38.98398695972945,
+            "fatigue_index": 0.15743510142936523
+        },
+        {
+            "trial": 92,
+            "amplitude_uV": 34.062644460648144,
+            "latency_ms": 300.78125,
+            "amp_smooth": 39.07859752411747,
+            "fatigue_index": 0.1553902736217413
+        },
+        {
+            "trial": 93,
+            "amplitude_uV": 29.043770364149303,
+            "latency_ms": 300.78125,
+            "amp_smooth": 38.20270990300926,
+            "fatigue_index": 0.17432092238787855
+        },
+        {
+            "trial": 94,
+            "amplitude_uV": 43.5352815324074,
+            "latency_ms": 347.65625,
+            "amp_smooth": 38.16946802662037,
+            "fatigue_index": 0.17503938246321238
+        },
+        {
+            "trial": 95,
+            "amplitude_uV": 51.03541344285301,
+            "latency_ms": 371.09375,
+            "amp_smooth": 40.04284896442418,
+            "fatigue_index": 0.13454980859085897
+        },
+        {
+            "trial": 96,
+            "amplitude_uV": 27.166646118055553,
+            "latency_ms": 394.53125,
+            "amp_smooth": 39.58489693247974,
+            "fatigue_index": 0.14444757270985675
+        },
+        {
+            "trial": 97,
+            "amplitude_uV": 34.630212282407406,
+            "latency_ms": 320.3125,
+            "amp_smooth": 39.277473438686336,
+            "fatigue_index": 0.15109194813338234
+        },
+        {
+            "trial": 98,
+            "amplitude_uV": 31.19578694849537,
+            "latency_ms": 410.15625,
+            "amp_smooth": 37.08625504048032,
+            "fatigue_index": 0.19845097555501923
+        },
+        {
+            "trial": 99,
+            "amplitude_uV": 29.152400781249998,
+            "latency_ms": 390.625,
+            "amp_smooth": 36.31568690598958,
+            "fatigue_index": 0.21510534348176902
+        },
+        {
+            "trial": 100,
+            "amplitude_uV": 39.317943916666664,
+            "latency_ms": 304.6875,
+            "amp_smooth": 36.373759437471065,
+            "fatigue_index": 0.21385021591752107
+        },
+        {
+            "trial": 101,
+            "amplitude_uV": 25.680090763888884,
+            "latency_ms": 429.6875,
+            "amp_smooth": 34.48201906108217,
+            "fatigue_index": 0.25473659421434847
+        },
+        {
+            "trial": 102,
+            "amplitude_uV": 38.435656440972224,
+            "latency_ms": 300.78125,
+            "amp_smooth": 34.919320259114585,
+            "fatigue_index": 0.24528515868145617
+        },
+        {
+            "trial": 103,
+            "amplitude_uV": 34.03080256828704,
+            "latency_ms": 285.15625,
+            "amp_smooth": 35.41802347952835,
+            "fatigue_index": 0.23450663495686042
+        },
+        {
+            "trial": 104,
+            "amplitude_uV": 28.002611766203703,
+            "latency_ms": 289.0625,
+            "amp_smooth": 33.86475650290798,
+            "fatigue_index": 0.2680775530356393
+        },
+        {
+            "trial": 105,
+            "amplitude_uV": 34.37171210416667,
+            "latency_ms": 359.375,
+            "amp_smooth": 32.19838636903935,
+            "fatigue_index": 0.3040929812234878
+        },
+        {
+            "trial": 106,
+            "amplitude_uV": 31.06953039409722,
+            "latency_ms": 324.21875,
+            "amp_smooth": 32.58867479664352,
+            "fatigue_index": 0.29565763750768737
+        },
+        {
+            "trial": 107,
+            "amplitude_uV": 46.74660413020833,
+            "latency_ms": 421.875,
+            "amp_smooth": 33.80031398142361,
+            "fatigue_index": 0.26947035584552637
+        },
+        {
+            "trial": 108,
+            "amplitude_uV": 31.01776265162037,
+            "latency_ms": 375.0,
+            "amp_smooth": 33.78251155173611,
+            "fatigue_index": 0.2698551215797099
+        },
+        {
+            "trial": 109,
+            "amplitude_uV": 33.183783302662036,
+            "latency_ms": 355.46875,
+            "amp_smooth": 34.18564980387731,
+            "fatigue_index": 0.26114205329153883
+        },
+        {
+            "trial": 110,
+            "amplitude_uV": 36.02116244444444,
+            "latency_ms": 355.46875,
+            "amp_smooth": 33.85597165665509,
+            "fatigue_index": 0.26826742081647115
+        },
+        {
+            "trial": 111,
+            "amplitude_uV": 30.728591743055553,
+            "latency_ms": 312.5,
+            "amp_smooth": 34.36082175457176,
+            "fatigue_index": 0.25735604399952483
+        },
+        {
+            "trial": 112,
+            "amplitude_uV": 42.42149446296296,
+            "latency_ms": 398.4375,
+            "amp_smooth": 34.75940555677083,
+            "fatigue_index": 0.24874141150391382
+        },
+        {
+            "trial": 113,
+            "amplitude_uV": 35.2418147037037,
+            "latency_ms": 375.0,
+            "amp_smooth": 34.8805067703125,
+            "fatigue_index": 0.24612403858590215
+        },
+        {
+            "trial": 114,
+            "amplitude_uV": 26.902596416666665,
+            "latency_ms": 257.8125,
+            "amp_smooth": 34.7705052353588,
+            "fatigue_index": 0.2485015130149959
+        },
+        {
+            "trial": 115,
+            "amplitude_uV": 29.067487407552083,
+            "latency_ms": 339.84375,
+            "amp_smooth": 34.24008276569734,
+            "fatigue_index": 0.2599655881187445
+        },
+        {
+            "trial": 116,
+            "amplitude_uV": 32.354113849537036,
+            "latency_ms": 335.9375,
+            "amp_smooth": 34.36854111124132,
+            "fatigue_index": 0.2571892047540665
+        },
+        {
+            "trial": 117,
+            "amplitude_uV": 27.965240944444442,
+            "latency_ms": 363.28125,
+            "amp_smooth": 32.49040479266493,
+            "fatigue_index": 0.2977815571575755
+        },
+        {
+            "trial": 118,
+            "amplitude_uV": 31.31743334722222,
+            "latency_ms": 250.0,
+            "amp_smooth": 32.52037186222512,
+            "fatigue_index": 0.29713387581727235
+        },
+        {
+            "trial": 119,
+            "amplitude_uV": 42.87917448263889,
+            "latency_ms": 363.28125,
+            "amp_smooth": 33.4899109802228,
+            "fatigue_index": 0.27617912766747843
+        },
+        {
+            "trial": 120,
+            "amplitude_uV": 40.462055846064814,
+            "latency_ms": 441.40625,
+            "amp_smooth": 33.93400032038484,
+            "fatigue_index": 0.26658097932425107
+        },
+        {
+            "trial": 121,
+            "amplitude_uV": 35.9368599375,
+            "latency_ms": 335.9375,
+            "amp_smooth": 34.454827139829284,
+            "fatigue_index": 0.25532429599036355
+        },
+        {
+            "trial": 122,
+            "amplitude_uV": 28.972808386574073,
+            "latency_ms": 425.78125,
+            "amp_smooth": 33.10995853219039,
+            "fatigue_index": 0.28439107879933145
+        },
+        {
+            "trial": 123,
+            "amplitude_uV": 45.5439554495081,
+            "latency_ms": 320.3125,
+            "amp_smooth": 34.14017260677083,
+            "fatigue_index": 0.26212495660532453
+        },
+        {
+            "trial": 124,
+            "amplitude_uV": 34.161748527777775,
+            "latency_ms": 277.34375,
+            "amp_smooth": 34.86608781788194,
+            "fatigue_index": 0.24643567687997148
+        },
+        {
+            "trial": 125,
+            "amplitude_uV": 44.08829020833333,
+            "latency_ms": 253.90625,
+            "amp_smooth": 36.368168097960066,
+            "fatigue_index": 0.21397106211041628
+        },
+        {
+            "trial": 126,
+            "amplitude_uV": 38.17078019444444,
+            "latency_ms": 449.21875,
+            "amp_smooth": 36.94983473245081,
+            "fatigue_index": 0.20139944162947676
+        },
+        {
+            "trial": 127,
+            "amplitude_uV": 35.61232734953704,
+            "latency_ms": 320.3125,
+            "amp_smooth": 37.714543372960065,
+            "fatigue_index": 0.1848717155456272
+        },
+        {
+            "trial": 128,
+            "amplitude_uV": 33.77302744907407,
+            "latency_ms": 289.0625,
+            "amp_smooth": 37.96010278314525,
+            "fatigue_index": 0.17956441489037422
+        },
+        {
+            "trial": 129,
+            "amplitude_uV": 38.769042086805555,
+            "latency_ms": 390.625,
+            "amp_smooth": 37.54908954356192,
+            "fatigue_index": 0.1884476860878137
+        },
+        {
+            "trial": 130,
+            "amplitude_uV": 39.24194575925926,
+            "latency_ms": 394.53125,
+            "amp_smooth": 37.42707853488137,
+            "fatigue_index": 0.1910847225012422
+        },
+        {
+            "trial": 131,
+            "amplitude_uV": 40.80228913888889,
+            "latency_ms": 371.09375,
+            "amp_smooth": 37.913621455020255,
+            "fatigue_index": 0.18056902059059476
+        },
+        {
+            "trial": 132,
+            "amplitude_uV": 28.943672606481478,
+            "latency_ms": 429.6875,
+            "amp_smooth": 37.91070787701099,
+            "fatigue_index": 0.18063199205019398
+        },
+        {
+            "trial": 133,
+            "amplitude_uV": 34.25750247077546,
+            "latency_ms": 410.15625,
+            "amp_smooth": 36.78206257913773,
+            "fatigue_index": 0.20502551834362182
+        },
+        {
+            "trial": 134,
+            "amplitude_uV": 40.43226285706018,
+            "latency_ms": 382.8125,
+            "amp_smooth": 37.40911401206597,
+            "fatigue_index": 0.19147299157078246
+        },
+        {
+            "trial": 135,
+            "amplitude_uV": 36.5364584537037,
+            "latency_ms": 375.0,
+            "amp_smooth": 36.65393083660301,
+            "fatigue_index": 0.20779484280404625
+        },
+        {
+            "trial": 136,
+            "amplitude_uV": 30.116289432870367,
+            "latency_ms": 265.625,
+            "amp_smooth": 35.8484817604456,
+            "fatigue_index": 0.22520309609166966
+        },
+        {
+            "trial": 137,
+            "amplitude_uV": 34.125704425925925,
+            "latency_ms": 375.0,
+            "amp_smooth": 35.69981946808449,
+            "fatigue_index": 0.22841614942595045
+        },
+        {
+            "trial": 138,
+            "amplitude_uV": 34.375752254629624,
+            "latency_ms": 332.03125,
+            "amp_smooth": 35.76009194864004,
+            "fatigue_index": 0.22711347413729044
+        },
+        {
+            "trial": 139,
+            "amplitude_uV": 35.41981217824074,
+            "latency_ms": 378.90625,
+            "amp_smooth": 35.42516895778356,
+            "fatigue_index": 0.2343521990042844
+        },
+        {
+            "trial": 140,
+            "amplitude_uV": 30.99058470833333,
+            "latency_ms": 304.6875,
+            "amp_smooth": 34.60003285269097,
+            "fatigue_index": 0.2521859500624427
+        },
+        {
+            "trial": 141,
+            "amplitude_uV": 25.50846190856481,
+            "latency_ms": 281.25,
+            "amp_smooth": 33.07065012965856,
+            "fatigue_index": 0.28524065532485254
+        },
+        {
+            "trial": 142,
+            "amplitude_uV": 38.28358071759259,
+            "latency_ms": 433.59375,
+            "amp_smooth": 34.004640940769676,
+            "fatigue_index": 0.2650542163687073
+        },
+        {
+            "trial": 143,
+            "amplitude_uV": 33.88177286111111,
+            "latency_ms": 316.40625,
+            "amp_smooth": 33.96706797980324,
+            "fatigue_index": 0.2658662846181242
+        },
+        {
+            "trial": 144,
+            "amplitude_uV": 29.113146636574072,
+            "latency_ms": 386.71875,
+            "amp_smooth": 32.83515635775463,
+            "fatigue_index": 0.2903304063101281
+        },
+        {
+            "trial": 145,
+            "amplitude_uV": 39.47213869907407,
+            "latency_ms": 281.25,
+            "amp_smooth": 33.128724382291665,
+            "fatigue_index": 0.2839854905611786
+        },
+        {
+            "trial": 146,
+            "amplitude_uV": 39.12319347800926,
+            "latency_ms": 375.0,
+            "amp_smooth": 34.02941478680556,
+            "fatigue_index": 0.264518776699748
+        },
+        {
+            "trial": 147,
+            "amplitude_uV": 24.703373046296296,
+            "latency_ms": 289.0625,
+            "amp_smooth": 33.08718164884259,
+            "fatigue_index": 0.2848833579094061
+        },
+        {
+            "trial": 148,
+            "amplitude_uV": 38.63243310300926,
+            "latency_ms": 367.1875,
+            "amp_smooth": 33.512849733680554,
+            "fatigue_index": 0.2756833500421567
+        },
+        {
+            "trial": 149,
+            "amplitude_uV": 41.566288854166665,
+            "latency_ms": 351.5625,
+            "amp_smooth": 34.127497401273146,
+            "fatigue_index": 0.26239890711853275
+        },
+        {
+            "trial": 150,
+            "amplitude_uV": 33.55404931134259,
+            "latency_ms": 355.46875,
+            "amp_smooth": 34.38384386157408,
+            "fatigue_index": 0.25685846484551655
+        },
+        {
+            "trial": 151,
+            "amplitude_uV": 39.129529724537036,
+            "latency_ms": 339.84375,
+            "amp_smooth": 35.7459506431713,
+            "fatigue_index": 0.22741911161916817
+        },
+        {
+            "trial": 152,
+            "amplitude_uV": 35.46147075925926,
+            "latency_ms": 351.5625,
+            "amp_smooth": 35.46373964733796,
+            "fatigue_index": 0.2335185667448192
+        },
+        {
+            "trial": 153,
+            "amplitude_uV": 37.11949299537037,
+            "latency_ms": 343.75,
+            "amp_smooth": 35.78751166076388,
+            "fatigue_index": 0.22652084909387638
+        },
+        {
+            "trial": 154,
+            "amplitude_uV": 23.83930428645833,
+            "latency_ms": 312.5,
+            "amp_smooth": 35.260127425752316,
+            "fatigue_index": 0.23791925852129825
+        },
+        {
+            "trial": 155,
+            "amplitude_uV": 39.913062721932874,
+            "latency_ms": 253.90625,
+            "amp_smooth": 35.3042198280382,
+            "fatigue_index": 0.23696628491964689
+        },
+        {
+            "trial": 156,
+            "amplitude_uV": 29.002592689814815,
+            "latency_ms": 328.125,
+            "amp_smooth": 34.292159749218754,
+            "fatigue_index": 0.25884004294595564
+        },
+        {
+            "trial": 157,
+            "amplitude_uV": 40.1906161412037,
+            "latency_ms": 339.84375,
+            "amp_smooth": 35.84088405870949,
+            "fatigue_index": 0.22536730599660493
+        },
+        {
+            "trial": 158,
+            "amplitude_uV": 39.22767419675926,
+            "latency_ms": 328.125,
+            "amp_smooth": 35.900408168084496,
+            "fatigue_index": 0.22408080533083508
+        },
+        {
+            "trial": 159,
+            "amplitude_uV": 32.08603268518518,
+            "latency_ms": 363.28125,
+            "amp_smooth": 34.952382551186346,
+            "fatigue_index": 0.24457057998034148
+        },
+        {
+            "trial": 160,
+            "amplitude_uV": 39.453855646701385,
+            "latency_ms": 316.40625,
+            "amp_smooth": 35.54236318472222,
+            "fatigue_index": 0.23181926818744314
+        },
+        {
+            "trial": 161,
+            "amplitude_uV": 42.86582350014467,
+            "latency_ms": 394.53125,
+            "amp_smooth": 35.91599256228299,
+            "fatigue_index": 0.22374397822460035
+        },
+        {
+            "trial": 162,
+            "amplitude_uV": 20.453877269675925,
+            "latency_ms": 359.375,
+            "amp_smooth": 34.41523321332465,
+            "fatigue_index": 0.25618004357472046
+        },
+        {
+            "trial": 163,
+            "amplitude_uV": 25.633149425925925,
+            "latency_ms": 410.15625,
+            "amp_smooth": 33.26659885638021,
+            "fatigue_index": 0.28100559544691284
+        },
+        {
+            "trial": 164,
+            "amplitude_uV": 44.991767233796295,
+            "latency_ms": 390.625,
+            "amp_smooth": 35.38184515111401,
+            "fatigue_index": 0.23528856087024574
+        },
+        {
+            "trial": 165,
+            "amplitude_uV": 35.00041321296296,
+            "latency_ms": 355.46875,
+            "amp_smooth": 34.89058020021701,
+            "fatigue_index": 0.24590632051477412
+        },
+        {
+            "trial": 166,
+            "amplitude_uV": 25.002666916666662,
+            "latency_ms": 320.3125,
+            "amp_smooth": 34.4905876229022,
+            "fatigue_index": 0.25455140101109186
+        },
+        {
+            "trial": 167,
+            "amplitude_uV": 39.75144785648148,
+            "latency_ms": 406.25,
+            "amp_smooth": 34.44667079442998,
+            "fatigue_index": 0.2555005799179457
+        },
+        {
+            "trial": 168,
+            "amplitude_uV": 27.612050368175364,
+            "latency_ms": 339.84375,
+            "amp_smooth": 33.285108411571585,
+            "fatigue_index": 0.280605546536869
+        },
+        {
+            "trial": 169,
+            "amplitude_uV": 32.78131232291666,
+            "latency_ms": 363.28125,
+            "amp_smooth": 33.35463637534473,
+            "fatigue_index": 0.27910283154250826
+        },
+        {
+            "trial": 170,
+            "amplitude_uV": 27.322387222222222,
+            "latency_ms": 421.875,
+            "amp_smooth": 32.14148953289682,
+            "fatigue_index": 0.30532269836409065
+        },
+        {
+            "trial": 171,
+            "amplitude_uV": 29.499965949797453,
+            "latency_ms": 449.21875,
+            "amp_smooth": 30.80490377786209,
+            "fatigue_index": 0.33421046303231505
+        },
+        {
+            "trial": 172,
+            "amplitude_uV": 34.67194537731481,
+            "latency_ms": 394.53125,
+            "amp_smooth": 32.226710588625984,
+            "fatigue_index": 0.30348080696774127
+        },
+        {
+            "trial": 173,
+            "amplitude_uV": 39.767964534722225,
+            "latency_ms": 335.9375,
+            "amp_smooth": 33.64019209950562,
+            "fatigue_index": 0.27293108646131836
+        },
+        {
+            "trial": 174,
+            "amplitude_uV": 41.673562660879625,
+            "latency_ms": 292.96875,
+            "amp_smooth": 33.30837164221394,
+            "fatigue_index": 0.2801027559529594
+        },
+        {
+            "trial": 175,
+            "amplitude_uV": 42.444702625,
+            "latency_ms": 324.21875,
+            "amp_smooth": 34.05280058341765,
+            "fatigue_index": 0.2640133370849951
+        },
+        {
+            "trial": 176,
+            "amplitude_uV": 38.476558399016206,
+            "latency_ms": 417.96875,
+            "amp_smooth": 35.4001897316526,
+            "fatigue_index": 0.23489207757425068
+        },
+        {
+            "trial": 177,
+            "amplitude_uV": 28.309635708912037,
+            "latency_ms": 402.34375,
+            "amp_smooth": 34.256008516895655,
+            "fatigue_index": 0.2596213832287486
+        },
+        {
+            "trial": 178,
+            "amplitude_uV": 31.363815807870367,
+            "latency_ms": 421.875,
+            "amp_smooth": 34.63118506086516,
+            "fatigue_index": 0.251512654200025
+        },
+        {
+            "trial": 179,
+            "amplitude_uV": 25.495297444444443,
+            "latency_ms": 382.8125,
+            "amp_smooth": 33.902583573017935,
+            "fatigue_index": 0.2672599926993058
+        },
+        {
+            "trial": 180,
+            "amplitude_uV": 34.60317308912037,
+            "latency_ms": 339.84375,
+            "amp_smooth": 34.630662159707754,
+            "fatigue_index": 0.2515239557162373
+        },
+        {
+            "trial": 181,
+            "amplitude_uV": 37.1304258912037,
+            "latency_ms": 429.6875,
+            "amp_smooth": 35.39370815384838,
+            "fatigue_index": 0.23503216457845666
+        },
+        {
+            "trial": 182,
+            "amplitude_uV": 32.445042992766204,
+            "latency_ms": 316.40625,
+            "amp_smooth": 35.17101791539352,
+            "fatigue_index": 0.23984519148538153
+        },
+        {
+            "trial": 183,
+            "amplitude_uV": 32.22875601157408,
+            "latency_ms": 308.59375,
+            "amp_smooth": 34.4170970630787,
+            "fatigue_index": 0.2561397599992977
+        },
+        {
+            "trial": 184,
+            "amplitude_uV": 28.263235557291665,
+            "latency_ms": 332.03125,
+            "amp_smooth": 33.07606435271991,
+            "fatigue_index": 0.28512363716790423
+        },
+        {
+            "trial": 185,
+            "amplitude_uV": 40.97949481423611,
+            "latency_ms": 390.625,
+            "amp_smooth": 32.92954357164352,
+            "fatigue_index": 0.28829040579969256
+        },
+        {
+            "trial": 186,
+            "amplitude_uV": 44.766368157407406,
+            "latency_ms": 355.46875,
+            "amp_smooth": 33.558524547482634,
+            "fatigue_index": 0.274696175618511
+        },
+        {
+            "trial": 187,
+            "amplitude_uV": 37.19959822829861,
+            "latency_ms": 394.53125,
+            "amp_smooth": 34.4475207994213,
+            "fatigue_index": 0.2554822086731052
+        },
+        {
+            "trial": 188,
+            "amplitude_uV": 32.40870704861111,
+            "latency_ms": 378.90625,
+            "amp_smooth": 34.55200992349537,
+            "fatigue_index": 0.2532238745443218
+        },
+        {
+            "trial": 189,
+            "amplitude_uV": 38.988890886574076,
+            "latency_ms": 398.4375,
+            "amp_smooth": 35.90136926770833,
+            "fatigue_index": 0.22406003298633603
+        },
+        {
+            "trial": 190,
+            "amplitude_uV": 27.883529728009258,
+            "latency_ms": 449.21875,
+            "amp_smooth": 35.22940493159722,
+            "fatigue_index": 0.2385832669306578
+        },
+        {
+            "trial": 191,
+            "amplitude_uV": 27.909339689814814,
+            "latency_ms": 328.125,
+            "amp_smooth": 34.30729631145833,
+            "fatigue_index": 0.25851289487766616
+        },
+        {
+            "trial": 192,
+            "amplitude_uV": 41.81246128240741,
+            "latency_ms": 351.5625,
+            "amp_smooth": 35.24403814042246,
+            "fatigue_index": 0.23826699789120998
+        },
+        {
+            "trial": 193,
+            "amplitude_uV": 31.866867100694442,
+            "latency_ms": 320.3125,
+            "amp_smooth": 35.207849249334494,
+            "fatigue_index": 0.23904915209674094
+        },
+        {
+            "trial": 194,
+            "amplitude_uV": 41.461445015046294,
+            "latency_ms": 378.90625,
+            "amp_smooth": 36.527670195109955,
+            "fatigue_index": 0.2105237269662268
+        },
+        {
+            "trial": 195,
+            "amplitude_uV": 34.877090947410295,
+            "latency_ms": 406.25,
+            "amp_smooth": 35.91742980842737,
+            "fatigue_index": 0.2237129148766387
+        },
+        {
+            "trial": 196,
+            "amplitude_uV": 29.199474931712963,
+            "latency_ms": 425.78125,
+            "amp_smooth": 34.36074048585793,
+            "fatigue_index": 0.2573578004685513
+        },
+        {
+            "trial": 197,
+            "amplitude_uV": 37.57983040509259,
+            "latency_ms": 371.09375,
+            "amp_smooth": 34.39876370353733,
+            "fatigue_index": 0.2565360007747318
+        },
+        {
+            "trial": 198,
+            "amplitude_uV": 26.126076219907404,
+            "latency_ms": 339.84375,
+            "amp_smooth": 33.77050062066696,
+            "fatigue_index": 0.270114715061733
+        },
+        {
+            "trial": 199,
+            "amplitude_uV": 27.53254015509259,
+            "latency_ms": 406.25,
+            "amp_smooth": 32.62486554751881,
+            "fatigue_index": 0.2948754431063827
+        },
+        {
+            "trial": 200,
+            "amplitude_uV": 32.8962445859375,
+            "latency_ms": 386.71875,
+            "amp_smooth": 33.12613703331163,
+            "fatigue_index": 0.28404141119939297
+        },
+        {
+            "trial": 201,
+            "amplitude_uV": 31.342550629629628,
+            "latency_ms": 328.125,
+            "amp_smooth": 33.469458127293116,
+            "fatigue_index": 0.2766211772703573
+        },
+        {
+            "trial": 202,
+            "amplitude_uV": 29.987487249999997,
+            "latency_ms": 359.375,
+            "amp_smooth": 32.28696072405237,
+            "fatigue_index": 0.30217861462664386
+        },
+        {
+            "trial": 203,
+            "amplitude_uV": 37.48108573046875,
+            "latency_ms": 398.4375,
+            "amp_smooth": 32.8483825870298,
+            "fatigue_index": 0.2900445464636424
+        },
+        {
+            "trial": 204,
+            "amplitude_uV": 35.06961548611111,
+            "latency_ms": 296.875,
+            "amp_smooth": 32.20919963413628,
+            "fatigue_index": 0.3038592730186541
+        },
+        {
+            "trial": 205,
+            "amplitude_uV": 30.606259425925927,
+            "latency_ms": 339.84375,
+            "amp_smooth": 31.782116481987845,
+            "fatigue_index": 0.31308986488045876
+        },
+        {
+            "trial": 206,
+            "amplitude_uV": 41.59892535532407,
+            "latency_ms": 265.625,
+            "amp_smooth": 33.022061524348956,
+            "fatigue_index": 0.28629080582245725
+        },
+        {
+            "trial": 207,
+            "amplitude_uV": 35.37622476215277,
+            "latency_ms": 300.78125,
+            "amp_smooth": 32.80170096005498,
+            "fatigue_index": 0.2910534812433966
+        },
+        {
+            "trial": 208,
+            "amplitude_uV": 30.951898013888886,
+            "latency_ms": 367.1875,
+            "amp_smooth": 33.28428313945312,
+            "fatigue_index": 0.28062338322759794
+        },
+        {
+            "trial": 209,
+            "amplitude_uV": 31.849117870370364,
+            "latency_ms": 320.3125,
+            "amp_smooth": 33.715940910980905,
+            "fatigue_index": 0.2712939196491232
+        },
+        {
+            "trial": 210,
+            "amplitude_uV": 35.150385909143516,
+            "latency_ms": 390.625,
+            "amp_smooth": 33.9413550433015,
+            "fatigue_index": 0.26642202094539946
+        },
+        {
+            "trial": 211,
+            "amplitude_uV": 34.57588637384259,
+            "latency_ms": 339.84375,
+            "amp_smooth": 34.2646886177228,
+            "fatigue_index": 0.2594337793215198
+        },
+        {
+            "trial": 212,
+            "amplitude_uV": 35.73839789149305,
+            "latency_ms": 261.71875,
+            "amp_smooth": 34.83977968187211,
+            "fatigue_index": 0.2470042773151092
+        },
+        {
+            "trial": 213,
+            "amplitude_uV": 33.87317825520833,
+            "latency_ms": 312.5,
+            "amp_smooth": 34.47898893434606,
+            "fatigue_index": 0.25480208465350507
+        },
+        {
+            "trial": 214,
+            "amplitude_uV": 35.56247176851851,
+            "latency_ms": 339.84375,
+            "amp_smooth": 34.52827456258681,
+            "fatigue_index": 0.2537368693279779
+        },
+        {
+            "trial": 215,
+            "amplitude_uV": 38.826405092592594,
+            "latency_ms": 308.59375,
+            "amp_smooth": 35.35028912925347,
+            "fatigue_index": 0.2359705843991804
+        },
+        {
+            "trial": 216,
+            "amplitude_uV": 29.12398786574074,
+            "latency_ms": 367.1875,
+            "amp_smooth": 34.102795380295134,
+            "fatigue_index": 0.2629327944251678
+        },
+        {
+            "trial": 217,
+            "amplitude_uV": 40.05932409259259,
+            "latency_ms": 367.1875,
+            "amp_smooth": 34.57110531333912,
+            "fatigue_index": 0.2528111639299999
+        },
+        {
+            "trial": 218,
+            "amplitude_uV": 38.84532212962963,
+            "latency_ms": 363.28125,
+            "amp_smooth": 35.36044772491319,
+            "fatigue_index": 0.23575102563187167
+        },
+        {
+            "trial": 219,
+            "amplitude_uV": 32.68400236574074,
+            "latency_ms": 347.65625,
+            "amp_smooth": 35.44393617445023,
+            "fatigue_index": 0.23394658123041379
+        },
+        {
+            "trial": 220,
+            "amplitude_uV": 21.284228266203705,
+            "latency_ms": 296.875,
+            "amp_smooth": 34.05732041015625,
+            "fatigue_index": 0.2639156496072751
+        },
+        {
+            "trial": 221,
+            "amplitude_uV": 31.03910242997685,
+            "latency_ms": 285.15625,
+            "amp_smooth": 33.703642015769674,
+            "fatigue_index": 0.27155973692961033
+        },
+        {
+            "trial": 222,
+            "amplitude_uV": 29.611971015046294,
+            "latency_ms": 351.5625,
+            "amp_smooth": 33.090999328124994,
+            "fatigue_index": 0.2848008460164928
+        },
+        {
+            "trial": 223,
+            "amplitude_uV": 39.738191486545134,
+            "latency_ms": 351.5625,
+            "amp_smooth": 33.67750065125868,
+            "fatigue_index": 0.2721247329152814
+        },
+        {
+            "trial": 224,
+            "amplitude_uV": 41.00495584259259,
+            "latency_ms": 375.0,
+            "amp_smooth": 34.22174905866609,
+            "fatigue_index": 0.2603618364045127
+        },
+        {
+            "trial": 225,
+            "amplitude_uV": 32.04234382986111,
+            "latency_ms": 414.0625,
+            "amp_smooth": 33.54334293239294,
+            "fatigue_index": 0.2750242974186594
+        },
+        {
+            "trial": 226,
+            "amplitude_uV": 39.4980609537037,
+            "latency_ms": 312.5,
+            "amp_smooth": 34.580750241189236,
+            "fatigue_index": 0.2526027071176131
+        },
+        {
+            "trial": 227,
+            "amplitude_uV": 30.592495942129624,
+            "latency_ms": 367.1875,
+            "amp_smooth": 33.63406742614294,
+            "fatigue_index": 0.2730634596533147
+        },
+        {
+            "trial": 228,
+            "amplitude_uV": 26.541227937499997,
+            "latency_ms": 359.375,
+            "amp_smooth": 32.40365800692997,
+            "fatigue_index": 0.29965642431263606
+        },
+        {
+            "trial": 229,
+            "amplitude_uV": 33.733178545138884,
+            "latency_ms": 332.03125,
+            "amp_smooth": 32.508575624869785,
+            "fatigue_index": 0.29738882910209363
+        },
+        {
+            "trial": 230,
+            "amplitude_uV": 34.36809423148148,
+            "latency_ms": 332.03125,
+            "amp_smooth": 33.81696222139757,
+            "fatigue_index": 0.2691105357317056
+        },
+        {
+            "trial": 231,
+            "amplitude_uV": 33.895549887731484,
+            "latency_ms": 414.0625,
+            "amp_smooth": 34.10260696717303,
+            "fatigue_index": 0.26293686661725213
+        },
+        {
+            "trial": 232,
+            "amplitude_uV": 39.31151686574074,
+            "latency_ms": 386.71875,
+            "amp_smooth": 35.072561552242476,
+            "fatigue_index": 0.24197313893513028
+        },
+        {
+            "trial": 233,
+            "amplitude_uV": 31.95871209259259,
+            "latency_ms": 253.90625,
+            "amp_smooth": 34.294613612847215,
+            "fatigue_index": 0.2587870073403016
+        },
+        {
+            "trial": 234,
+            "amplitude_uV": 36.837020787037034,
+            "latency_ms": 308.59375,
+            "amp_smooth": 33.87782010729166,
+            "fatigue_index": 0.2677952080175714
+        },
+        {
+            "trial": 235,
+            "amplitude_uV": 40.44198300925926,
+            "latency_ms": 343.75,
+            "amp_smooth": 34.71778402523148,
+            "fatigue_index": 0.24964098192332818
+        },
+        {
+            "trial": 236,
+            "amplitude_uV": 32.300701365740736,
+            "latency_ms": 292.96875,
+            "amp_smooth": 33.99804806643518,
+            "fatigue_index": 0.2651967088362086
+        },
+        {
+            "trial": 237,
+            "amplitude_uV": 17.54146937037037,
+            "latency_ms": 335.9375,
+            "amp_smooth": 32.69294540925925,
+            "fatigue_index": 0.29340402608940863
+        },
+        {
+            "trial": 238,
+            "amplitude_uV": 33.66392427430556,
+            "latency_ms": 394.53125,
+            "amp_smooth": 33.405215042939815,
+            "fatigue_index": 0.2780096696251264
+        },
+        {
+            "trial": 239,
+            "amplitude_uV": 31.71386589699074,
+            "latency_ms": 394.53125,
+            "amp_smooth": 33.203283778125,
+            "fatigue_index": 0.2823740307109407
+        },
+        {
+            "trial": 240,
+            "amplitude_uV": 35.19295569097222,
+            "latency_ms": 335.9375,
+            "amp_smooth": 33.285769924074074,
+            "fatigue_index": 0.280591249199474
+        },
+        {
+            "trial": 241,
+            "amplitude_uV": 34.29708050925925,
+            "latency_ms": 335.9375,
+            "amp_smooth": 33.32592298622685,
+            "fatigue_index": 0.27972341695914926
+        },
+        {
+            "trial": 242,
+            "amplitude_uV": 29.090740565972222,
+            "latency_ms": 378.90625,
+            "amp_smooth": 32.303845356249994,
+            "fatigue_index": 0.30181368534350794
+        },
+        {
+            "trial": 243,
+            "amplitude_uV": 32.85784616608797,
+            "latency_ms": 347.65625,
+            "amp_smooth": 32.393758763599536,
+            "fatigue_index": 0.2998703776715178
+        }
+    ]
+}

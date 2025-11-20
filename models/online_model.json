@@ -1,0 +1,264 @@
+{
+    "classifier": {
+        "threshold_uV": 34.60585197914196,
+        "offline_accuracy": 0.8911222780569514
+    },
+    "calibration": {
+        "p300_mean_amplitude_uv": 34.60585197914196,
+        "p300_mean_latency_ms": 352.234887295082,
+        "channel": "Pz",
+        "n_trials": 244
+    },
+    "simulated_stream": [
+        {
+            "trial": 0,
+            "amp_uV": 46.26823052546296,
+            "prediction": 1
+        },
+        {
+            "trial": 1,
+            "amp_uV": 26.559910332175924,
+            "prediction": 0
+        },
+        {
+            "trial": 2,
+            "amp_uV": 24.791724557870367,
+            "prediction": 0
+        },
+        {
+            "trial": 3,
+            "amp_uV": 45.5022334927662,
+            "prediction": 1
+        },
+        {
+            "trial": 4,
+            "amp_uV": 29.550105782407407,
+            "prediction": 0
+        },
+        {
+            "trial": 5,
+            "amp_uV": 45.67899327546296,
+            "prediction": 1
+        },
+        {
+            "trial": 6,
+            "amp_uV": 45.85219866435185,
+            "prediction": 1
+        },
+        {
+            "trial": 7,
+            "amp_uV": 30.495006120370366,
+            "prediction": 0
+        },
+        {
+            "trial": 8,
+            "amp_uV": 30.922438756944445,
+            "prediction": 0
+        },
+        {
+            "trial": 9,
+            "amp_uV": 29.459129196759257,
+            "prediction": 0
+        },
+        {
+            "trial": 10,
+            "amp_uV": 28.006635328703705,
+            "prediction": 0
+        },
+        {
+            "trial": 11,
+            "amp_uV": 31.358629675925926,
+            "prediction": 0
+        },
+        {
+            "trial": 12,
+            "amp_uV": 38.05761565509259,
+            "prediction": 1
+        },
+        {
+            "trial": 13,
+            "amp_uV": 35.91757657523148,
+            "prediction": 1
+        },
+        {
+            "trial": 14,
+            "amp_uV": 32.26100740176504,
+            "prediction": 0
+        },
+        {
+            "trial": 15,
+            "amp_uV": 29.90836015046296,
+            "prediction": 0
+        },
+        {
+            "trial": 16,
+            "amp_uV": 39.74877709027778,
+            "prediction": 1
+        },
+        {
+            "trial": 17,
+            "amp_uV": 34.214766097222224,
+            "prediction": 0
+        },
+        {
+            "trial": 18,
+            "amp_uV": 32.17566014814815,
+            "prediction": 0
+        },
+        {
+            "trial": 19,
+            "amp_uV": 31.274864497974534,
+            "prediction": 0
+        },
+        {
+            "trial": 20,
+            "amp_uV": 31.954977560185185,
+            "prediction": 0
+        },
+        {
+            "trial": 21,
+            "amp_uV": 49.088647111111115,
+            "prediction": 1
+        },
+        {
+            "trial": 22,
+            "amp_uV": 40.935705050925925,
+            "prediction": 1
+        },
+        {
+            "trial": 23,
+            "amp_uV": 29.36772834519676,
+            "prediction": 0
+        },
+        {
+            "trial": 24,
+            "amp_uV": 42.38615854629629,
+            "prediction": 1
+        },
+        {
+            "trial": 25,
+            "amp_uV": 35.719484870370366,
+            "prediction": 1
+        },
+        {
+            "trial": 26,
+            "amp_uV": 38.68373832986111,
+            "prediction": 1
+        },
+        {
+            "trial": 27,
+            "amp_uV": 40.9430981261574,
+            "prediction": 1
+        },
+        {
+            "trial": 28,
+            "amp_uV": 32.05100012962963,
+            "prediction": 0
+        },
+        {
+            "trial": 29,
+            "amp_uV": 28.09758216688368,
+            "prediction": 0
+        },
+        {
+            "trial": 30,
+            "amp_uV": 32.01885407407408,
+            "prediction": 0
+        },
+        {
+            "trial": 31,
+            "amp_uV": 27.808017973379627,
+            "prediction": 0
+        },
+        {
+            "trial": 32,
+            "amp_uV": 20.98308202777778,
+            "prediction": 0
+        },
+        {
+            "trial": 33,
+            "amp_uV": 35.146802180555554,
+            "prediction": 1
+        },
+        {
+            "trial": 34,
+            "amp_uV": 36.587271692129626,
+            "prediction": 1
+        },
+        {
+            "trial": 35,
+            "amp_uV": 33.64530631915509,
+            "prediction": 0
+        },
+        {
+            "trial": 36,
+            "amp_uV": 41.632281120370365,
+            "prediction": 1
+        },
+        {
+            "trial": 37,
+            "amp_uV": 39.38912463773148,
+            "prediction": 1
+        },
+        {
+            "trial": 38,
+            "amp_uV": 41.810531990740735,
+            "prediction": 1
+        },
+        {
+            "trial": 39,
+            "amp_uV": 34.18541988194444,
+            "prediction": 0
+        },
+        {
+            "trial": 40,
+            "amp_uV": 39.66939155092593,
+            "prediction": 1
+        },
+        {
+            "trial": 41,
+            "amp_uV": 26.178278634259257,
+            "prediction": 0
+        },
+        {
+            "trial": 42,
+            "amp_uV": 34.378217633101855,
+            "prediction": 0
+        },
+        {
+            "trial": 43,
+            "amp_uV": 27.36168515509259,
+            "prediction": 0
+        },
+        {
+            "trial": 44,
+            "amp_uV": 44.21879902835648,
+            "prediction": 1
+        },
+        {
+            "trial": 45,
+            "amp_uV": 44.45242697222222,
+            "prediction": 1
+        },
+        {
+            "trial": 46,
+            "amp_uV": 35.78802958796296,
+            "prediction": 1
+        },
+        {
+            "trial": 47,
+            "amp_uV": 29.73278687037037,
+            "prediction": 0
+        },
+        {
+            "trial": 48,
+            "amp_uV": 38.848977670138886,
+            "prediction": 1
+        },
+        {
+            "trial": 49,
+            "amp_uV": 28.154838429398147,
+            "prediction": 0
+        }
+    ]
+}

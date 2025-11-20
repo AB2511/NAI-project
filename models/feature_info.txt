@@ -1,0 +1,58 @@
+Feature columns:
+0: amplitude_uv_mean
+1: amplitude_uv_std
+2: amplitude_uv_min
+3: amplitude_uv_max
+4: amplitude_uv_median
+5: amplitude_uv_skew
+6: amplitude_uv_kurtosis
+7: amplitude_uv_last
+8: amplitude_uv_count
+9: amplitude_uv_slope
+10: amplitude_uv_range
+11: amplitude_uv_p25
+12: amplitude_uv_p75
+13: latency_ms_mean
+14: latency_ms_std
+15: latency_ms_min
+16: latency_ms_max
+17: latency_ms_median
+18: latency_ms_skew
+19: latency_ms_kurtosis
+20: latency_ms_last
+21: latency_ms_count
+22: latency_ms_slope
+23: latency_ms_range
+24: latency_ms_p25
+25: latency_ms_p75
+26: smoothed_amp_uv_mean
+27: smoothed_amp_uv_std
+28: smoothed_amp_uv_min
+29: smoothed_amp_uv_max
+30: smoothed_amp_uv_median
+31: smoothed_amp_uv_skew
+32: smoothed_amp_uv_kurtosis
+33: smoothed_amp_uv_last
+34: smoothed_amp_uv_count
+35: smoothed_amp_uv_slope
+36: smoothed_amp_uv_range
+37: smoothed_amp_uv_p25
+38: smoothed_amp_uv_p75
+39: fatigue_index_mean
+40: fatigue_index_std
+41: fatigue_index_min
+42: fatigue_index_max
+43: fatigue_index_median
+44: fatigue_index_skew
+45: fatigue_index_kurtosis
+46: fatigue_index_last
+47: fatigue_index_count
+48: fatigue_index_slope
+49: fatigue_index_range
+50: fatigue_index_p25
+51: fatigue_index_p75
+
+Classes: ['Distracted', 'Focused', 'Overload', 'Relaxed']
+Window size: 1.5s
+Confidence threshold: 0.6
+Test accuracy: 0.2460

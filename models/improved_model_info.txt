@@ -1,0 +1,102 @@
+=== Improved P300 Classifier Info ===
+
+Best model: xgboost
+Test accuracy: 0.1598
+Feature count: 90
+Classes: ['Distracted', 'Focused', 'Overload', 'Relaxed']
+Window size: 2.0s
+Overlap: 0.3
+Confidence threshold: 0.7
+Best parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.15, 'max_depth': 6, 'n_estimators': 300, 'subsample': 1.0}
+
+Feature columns:
+0: amplitude_uv_mean
+1: amplitude_uv_std
+2: amplitude_uv_min
+3: amplitude_uv_max
+4: amplitude_uv_median
+5: amplitude_uv_skew
+6: amplitude_uv_kurtosis
+7: amplitude_uv_last
+8: amplitude_uv_first
+9: amplitude_uv_count
+10: amplitude_uv_slope
+11: amplitude_uv_diff_mean
+12: amplitude_uv_diff_std
+13: amplitude_uv_range
+14: amplitude_uv_iqr
+15: amplitude_uv_p10
+16: amplitude_uv_p25
+17: amplitude_uv_p75
+18: amplitude_uv_p90
+19: amplitude_uv_energy
+20: amplitude_uv_rms
+21: amplitude_uv_zero_crossings
+22: latency_ms_mean
+23: latency_ms_std
+24: latency_ms_min
+25: latency_ms_max
+26: latency_ms_median
+27: latency_ms_skew
+28: latency_ms_kurtosis
+29: latency_ms_last
+30: latency_ms_first
+31: latency_ms_count
+32: latency_ms_slope
+33: latency_ms_diff_mean
+34: latency_ms_diff_std
+35: latency_ms_range
+36: latency_ms_iqr
+37: latency_ms_p10
+38: latency_ms_p25
+39: latency_ms_p75
+40: latency_ms_p90
+41: latency_ms_energy
+42: latency_ms_rms
+43: latency_ms_zero_crossings
+44: smoothed_amp_uv_mean
+45: smoothed_amp_uv_std
+46: smoothed_amp_uv_min
+47: smoothed_amp_uv_max
+48: smoothed_amp_uv_median
+49: smoothed_amp_uv_skew
+50: smoothed_amp_uv_kurtosis
+51: smoothed_amp_uv_last
+52: smoothed_amp_uv_first
+53: smoothed_amp_uv_count
+54: smoothed_amp_uv_slope
+55: smoothed_amp_uv_diff_mean
+56: smoothed_amp_uv_diff_std
+57: smoothed_amp_uv_range
+58: smoothed_amp_uv_iqr
+59: smoothed_amp_uv_p10
+60: smoothed_amp_uv_p25
+61: smoothed_amp_uv_p75
+62: smoothed_amp_uv_p90
+63: smoothed_amp_uv_energy
+64: smoothed_amp_uv_rms
+65: smoothed_amp_uv_zero_crossings
+66: fatigue_index_mean
+67: fatigue_index_std
+68: fatigue_index_min
+69: fatigue_index_max
+70: fatigue_index_median
+71: fatigue_index_skew
+72: fatigue_index_kurtosis
+73: fatigue_index_last
+74: fatigue_index_first
+75: fatigue_index_count
+76: fatigue_index_slope
+77: fatigue_index_diff_mean
+78: fatigue_index_diff_std
+79: fatigue_index_range
+80: fatigue_index_iqr
+81: fatigue_index_p10
+82: fatigue_index_p25
+83: fatigue_index_p75
+84: fatigue_index_p90
+85: fatigue_index_energy
+86: fatigue_index_rms
+87: fatigue_index_zero_crossings
+88: amp_lat_corr
+89: amp_lat_ratio
