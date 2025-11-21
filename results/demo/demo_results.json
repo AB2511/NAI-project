@@ -1,0 +1,48 @@
+{
+  "demo_timestamp": 1763669331.0016115,
+  "eeg_samples": 2560,
+  "channels": 26,
+  "p300_events": [
+    {
+      "time": 8.78084748441274,
+      "amplitude": 4.638768084090016,
+      "latency": 276.9904995369733,
+      "detected": true
+    },
+    {
+      "time": 5.955386311395766,
+      "amplitude": 3.119298471859736,
+      "latency": 349.03348593924085,
+      "detected": true
+    },
+    {
+      "time": 7.296769888675243,
+      "amplitude": 4.2262177563235825,
+      "latency": 324.313275775212,
+      "detected": true
+    },
+    {
+      "time": 6.413572737299317,
+      "amplitude": 4.197048200471858,
+      "latency": 347.2206796975667,
+      "detected": true
+    },
+    {
+      "time": 5.900822168797464,
+      "amplitude": 3.658503439516486,
+      "latency": 396.0373842412469,
+      "detected": true
+    }
+  ],
+  "states_detected": [
+    "focused",
+    "distracted",
+    "overloaded",
+    "relaxed"
+  ],
+  "performance": {
+    "sampling_rate": 256,
+    "latency_ms": 18.79995540629863,
+    "accuracy": 0.8725105486718334
+  }
+}

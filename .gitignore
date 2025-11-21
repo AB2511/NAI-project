@@ -1,0 +1,43 @@
+# Large data files
+data/raw_p3b/
+data/**/*.zip
+*.zip
+
+# EEG data files
+*.set
+*.fdt
+*.tsv
+*.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large model files
+models/*.h5
+models/*.pkl
+models/*.joblib
+
+# Large result files
+results/**/*.npz
+results/**/*.npy
+
+# Large processed data files
+data/processed_p3b/*.npy
+data/processed_p3b/sub-*
+
+# Temporary analysis files
+check_*.py
+get_exact_channels.py

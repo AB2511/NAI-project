@@ -4,6 +4,23 @@ A production-ready NeuroAdaptive Interface for real-time P300-based cognitive st
 
 ![System Architecture](figures/final/system_architecture.png)
 
+## 📊 Key Results
+
+### ERP Analysis
+![Grand Average ERP](figures/final/erp_grand_target_vs_nontarget.png)
+*Grand-average ERP showing P300 component for target vs non-target stimuli*
+
+### Brain Topography  
+![P300 Topomap](figures/final/topomap_group_300ms.png)
+*P300 difference topography at 300ms showing central-parietal distribution*
+
+### Machine Learning Performance
+![ROC Curve](figures/final/roc_eegnet_loso.png)
+*EEGNet LOSO cross-validation ROC curve (AUC = 0.831)*
+
+![ML Comparison](figures/final/ml_comparison_barplot.png)
+*Comparison of EEGNet vs traditional ML methods*
+
 ## 🎯 What This Project Does
 
 This system performs real-time P300 detection from EEG signals to monitor cognitive states (focused, distracted, overloaded). It combines modern deep learning (EEGNet) with traditional signal processing for robust, cross-subject generalization in brain-computer interface applications.
@@ -191,16 +208,16 @@ The Decision Logic Engine triggers:
 
 Place raw files in `data/raw_p3b/` and run preprocessing scripts to generate `data/processed_p3b/`.
 
-## � Citeation
+## 📑 Citation
 
 If you use this project, please cite:
 
 ```bibtex
-@misc{bhosale2025nai,
-  title={NeuroAdaptive Interface: Real-time EEG Cognitive State Monitoring},
-  author={Bhosale, Anjali},
-  year={2025},
-  url={https://github.com/AB2511/NAI-project}
+@misc{barge2025nai,
+  title   = {NeuroAdaptive Interface: Real-time EEG Cognitive State Monitoring},
+  author  = {Barge, Anjali},
+  year    = {2025},
+  url     = {https://github.com/AB2511/NAI-project}
 }
 ```
 
