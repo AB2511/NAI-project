@@ -209,4 +209,5 @@ MIT [LICENSE](LICENSE)
 # 💡 Maintainer
 
 **Anjali Barge**
+
 Advancing adaptive neurotechnology for human–AI interaction ⚡
