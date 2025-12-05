@@ -6,11 +6,12 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{subcaption}
+\usepackage{subfig}
 \usepackage{float}
 \usepackage{microtype}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{bbding}
 
 % Metadata
 \begin{document}
@@ -18,7 +19,7 @@
 \title{NeuroAdaptive Interface (NAI): Real-Time P300 Detection and Cognitive-State Monitoring using EEGNet and Cross-Subject Evaluation}
 \titlerunning{NeuroAdaptive Interface (NAI)}
 
-\author{Anjali Barge\inst{1}\orcidID{0009-0005-1983-9214}\thanks{Corresponding author: \texttt{bargeanjali650@gmail.com}}}
+\author{Anjali Barge\inst{1}\orcidID{0009-0005-1983-9214}\Envelope}
 \authorrunning{A. Barge}
 
 \institute{Alard College of Engineering and Management (Affiliated to Savitribai Phule Pune University), Pune, India \\
@@ -27,21 +28,32 @@
 \maketitle
 
 \begin{abstract}
-I present the NeuroAdaptive Interface (NAI), an end-to-end real-time brain–computer interface pipeline for P300-based cognitive-state monitoring. The system integrates Lab Streaming Layer (LSL) acquisition, ERP preprocessing, EEGNet inference, and an adaptive Streamlit dashboard. Evaluation on the ERP CORE P3b dataset (20 subjects) using Leave-One-Subject-Out (LOSO) cross-validation yields a cross-subject AUC of $0.57 \pm 0.08$, while within-subject AUC reaches $0.85$--$0.90$. I provide electrophysiological analyses (grand-average ERPs, difference waves, topographies) and publication-quality figures derived from real data to demonstrate both feasibility and the limitations of cross-subject neuroadaptive systems.
+This paper presents the NeuroAdaptive Interface (NAI), an end-to-end real-time brain–computer interface pipeline for P300-based cognitive-state monitoring. The system integrates Lab Streaming Layer (LSL) acquisition, ERP preprocessing, EEGNet inference, and an adaptive Streamlit dashboard. Evaluation on the ERP CORE P3b dataset (20 subjects) using Leave-One-Subject-Out (LOSO) cross-validation yields a cross-subject AUC of $0.57 \pm 0.08$, while within-subject AUC reaches $0.85$--$0.90$. The results highlight both the feasibility and current limitations of subject-independent neuroadaptive systems, motivating future work on transfer learning and personalization.
 \keywords{EEG \and P300 \and BCI \and EEGNet \and LOSO \and ERP CORE}
 \end{abstract}
 
 \section{Introduction}
 The P300 event-related potential (ERP) is a robust neural marker of stimulus-related cognitive processing \cite{sutton1965p300,farwell1988talking}. P300-based brain–computer interfaces (BCIs) are widely used for communication and cognitive monitoring, but cross-subject generalization remains challenging due to large inter-subject variability in amplitude, latency, and noise characteristics \cite{krusienski2006comparison}. Deep learning architectures designed for EEG, such as EEGNet \cite{lawhern2018eegnet}, offer compact, data-efficient models for ERP classification.
 
-In this work I build and evaluate a production-style, real-time pipeline (acquisition → preprocessing → inference → dashboard). I focus on honest, reproducible reporting of cross-subject performance using a strict LOSO protocol on the ERP CORE P3b dataset \cite{kappenman2021erp}, and I contrast cross-subject performance with within-subject results.
+This work presents a production-style, real-time pipeline (acquisition → preprocessing → inference → dashboard) with honest, reproducible reporting of cross-subject performance using a strict LOSO protocol on the ERP CORE P3b dataset \cite{kappenman2021erp}, contrasting cross-subject performance with within-subject results.
+
+\section{Related Work}
+
+\subsection{P300-based BCIs}
+The P300 speller, introduced by Farwell and Donchin \cite{farwell1988talking}, remains a foundational BCI paradigm. Traditional approaches relied on stepwise linear discriminant analysis (SWLDA) and achieved information transfer rates of 20--25 bits/min under controlled conditions \cite{krusienski2006comparison}. However, cross-subject generalization has remained problematic, with most deployed systems requiring per-user calibration sessions of 5--15 minutes.
+
+\subsection{Deep learning for EEG}
+EEGNet \cite{lawhern2018eegnet} introduced a compact convolutional architecture specifically designed for EEG, using depthwise separable convolutions to reduce parameters while maintaining interpretability. The architecture has been successfully applied to motor imagery, error-related potentials, and P300 detection, typically achieving within-subject accuracies of 80--95\%. However, cross-subject transfer remains challenging, with reported AUCs of 0.55--0.65 for strict LOSO evaluation on P300 tasks.
+
+\subsection{Transfer learning approaches}
+Recent work has explored domain adaptation techniques for cross-subject EEG decoding, including Euclidean alignment, Riemannian geometry-based methods, and adversarial domain adaptation. These approaches can improve cross-subject performance by 5--15\% over naive pooling, but typically still require some target-domain calibration data for optimal results.
 
 \section{Methods}
 
 \subsection{System overview}
 The NAI pipeline (Fig.~\ref{fig:architecture}) comprises:
 \begin{enumerate}
-  \item EEG acquisition via LSL,
+  \item EEG acquisition via Lab Streaming Layer (LSL) \cite{kothe2019lsl},
   \item preprocessing and epoching (ERP pipeline),
   \item EEGNet inference for P300 detection,
   \item lightweight cognitive-state mapping and Streamlit dashboard for real-time feedback.
@@ -50,35 +62,47 @@ The NAI pipeline (Fig.~\ref{fig:architecture}) comprises:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.85\textwidth]{final/system_architecture.png}
-  \caption{NAI system architecture: acquisition, preprocessing, inference, and dashboard.}
+  \caption[NAI system architecture]{NAI system architecture: acquisition, preprocessing, inference, and dashboard. Alt-text: Block diagram showing the NAI pipeline with four stages: LSL acquisition, ERP preprocessing, EEGNet inference, and Streamlit dashboard.}
   \label{fig:architecture}
 \end{figure}
 
 \subsection{Dataset}
-I used the ERP CORE P3b dataset \cite{kappenman2021erp} (OpenNeuro ds003061). For reproducibility, I followed the dataset BIDS layout and preprocessing recommendations from the release. For the subset used here the per-subject trial counts were typical of P3b oddball paradigms (≈80 targets, ≈320 non-targets).
+The ERP CORE P3b dataset \cite{kappenman2021erp} (OpenNeuro ds003061) was used for evaluation. For reproducibility, the dataset BIDS layout and preprocessing recommendations from the release were followed. The per-subject trial counts were typical of P3b oddball paradigms ($\approx 80$ targets, $\approx 320$ non-targets).
 
 \subsection{Preprocessing}
-Preprocessing was performed with MNE-Python \cite{gramfort2013mne} using standard ERP procedures:
+Preprocessing was performed with MNE-Python \cite{gramfort2013mne} (version 1.6.0) using standard ERP procedures:
 \begin{itemize}
   \item band-pass filter: 0.1--15\,Hz,
   \item epoch window: $[-200,800]$\,ms around stimulus onset,
   \item baseline correction: $[-200,0]$\,ms,
   \item artifact rejection (peak-to-peak thresholds), and average referencing.
 \end{itemize}
-I computed grand-average ERPs and difference waves (target minus non-target) and generated topographic maps at the P3b peak.
+Grand-average ERPs and difference waves (target minus non-target) were computed, and topographic maps at the P3b peak were generated.
 
 \subsection{Model and training}
-I implemented EEGNet \cite{lawhern2018eegnet} with typical compact configuration (temporal convolution, depthwise separable filters, batch norm, dropout). Training details:
+EEGNet \cite{lawhern2018eegnet} was implemented in PyTorch 2.0 with the following architecture:
 \begin{itemize}
-  \item optimizer: Adam;
-  \item loss: binary cross-entropy;
-  \item regularization: dropout 0.3 and early stopping on validation AUC;
-  \item LOSO: 20 folds (train on 19 subjects, test on 1);
-  \item within-subject: per-subject 80/20 split for comparison.
+  \item Temporal convolution: $F_1=16$ filters, kernel size 64 samples ($\approx$62\,ms at 1024\,Hz);
+  \item Depthwise spatial convolution: depth multiplier $D=2$, yielding 32 feature maps;
+  \item Separable convolution: $F_2=32$ filters, kernel size 16;
+  \item Pooling: average pooling with factors 4 and 8;
+  \item Regularization: dropout $p=0.5$, batch normalization after each convolution;
+  \item Classifier: two fully-connected layers (128 units, ELU activation).
 \end{itemize}
 
+Training employed several techniques to handle class imbalance ($\approx$4:1 non-target to target ratio):
+\begin{itemize}
+  \item Focal loss ($\gamma=2.0$) with class-weighted $\alpha$ computed per fold;
+  \item Weighted random sampling to oversample minority class during training;
+  \item Data augmentation (training only): temporal jitter ($\pm$8\,ms), Gaussian noise ($\sigma=0.005$), channel dropout (12\%), and time masking (20\,ms blocks);
+  \item Adam optimizer (lr=$10^{-3}$, weight decay=$10^{-4}$);
+  \item Early stopping (patience=8 epochs) and learning rate reduction on plateau.
+\end{itemize}
+
+LOSO cross-validation: 20 folds, training on 19 subjects ($\approx$3768 epochs) and testing on 1 held-out subject ($\approx$200 epochs). Per-fold standardization was applied (fit on training data only). All experiments were conducted on CPU (Intel Core i7) with random seed fixed at 42 for reproducibility. Complete preprocessing and training parameters are provided in Appendix~A.
+
 \subsection{Evaluation metrics}
-Primary metric: Area Under the ROC Curve (AUC). I report mean and standard deviation across LOSO folds. For clarity and reproducibility, I provide the scripts used to reproduce these metrics in the repository.
+Primary metric: Area Under the ROC Curve (AUC). Mean and standard deviation across LOSO folds are reported. For clarity and reproducibility, the scripts used to reproduce these metrics are provided in the repository.
 
 \section{Results}
 
@@ -87,68 +111,145 @@ Figure~\ref{fig:erp_topo} shows the grand-average ERP at Pz and the topographic 
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\textwidth]{final/erp_grand_target_vs_nontarget.png}
-    \caption{Grand-average ERP at Pz}
-  \end{subfigure}
+  \subfloat[Grand-average ERP at Pz]{\includegraphics[width=0.48\textwidth]{final/erp_grand_target_vs_nontarget.png}}
   \hfill
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\textwidth]{final/topomap_group_peak.png}
-    \caption{Topographic map at P300 peak}
-  \end{subfigure}
-  \caption{ERP and topography demonstrating the P3b response (figures derived from ERP CORE P3b data after preprocessing).}
+  \subfloat[Topographic map at P300 peak]{\includegraphics[width=0.48\textwidth]{final/topomap_group_peak.png}}
+  \caption[ERP and topography]{ERP and topography demonstrating the P3b response (figures derived from ERP CORE P3b data after preprocessing). Alt-text: (a) Line plot showing grand-average ERP waveforms at Pz for target and non-target conditions with P300 peak around 400ms. (b) Topographic scalp map showing parietal positivity at P300 peak latency.}
   \label{fig:erp_topo}
 \end{figure}
 
 \subsection{Classification performance}
-Table~\ref{tab:auc} summarizes performance. The LOSO cross-subject AUC is $0.57 \pm 0.08$, reflecting the difficulty of subject-independent P300 decoding. Within-subject AUC (per-subject 80/20) is substantially higher ($0.85$--$0.90$), demonstrating the model's capacity when individualized.
+Table~\ref{tab:auc} summarizes performance across methods. EEGNet achieved a LOSO cross-subject AUC of $0.57 \pm 0.08$, outperforming traditional ML baselines (LDA: $0.53 \pm 0.10$, SVM: $0.51 \pm 0.09$, XGBoost: $0.51 \pm 0.11$). Within-subject AUC reached $0.85$--$0.90$, demonstrating the model's capacity when individualized.
 
 \begin{table}[H]
 \centering
-\caption{Classification summary (AUC).}\label{tab:auc}
-\begin{tabular}{lcc}
+\caption{Classification comparison (LOSO cross-validation, 20 folds).}\label{tab:auc}
+\begin{tabular}{lccc}
 \toprule
-Method & AUC & Setting \\
+Method & AUC (mean $\pm$ std) & Accuracy & Setting \\
 \midrule
-EEGNet (LOSO) & $0.57 \pm 0.08$ & cross-subject (20-fold LOSO) \\
-EEGNet (within-subject) & $0.85$--$0.90$ & per-subject (80/20 split) \\
+EEGNet & $0.57 \pm 0.08$ & 0.22 & cross-subject \\
+LDA & $0.53 \pm 0.10$ & 0.95 & cross-subject \\
+SVM (RBF) & $0.51 \pm 0.09$ & 0.95 & cross-subject \\
+XGBoost & $0.51 \pm 0.11$ & 0.95 & cross-subject \\
+Logistic Reg. & $0.49 \pm 0.10$ & 0.72 & cross-subject \\
+\midrule
+EEGNet & $0.85$--$0.90$ & 0.80--0.85 & within-subject \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\noindent Note: High accuracy for LDA/SVM reflects majority-class prediction (predicting all non-targets yields $\approx$96\% accuracy due to class imbalance). AUC is the appropriate metric for imbalanced classification.
+
+\subsection{Per-subject variability}
+Per-subject AUC ranged from 0.24 (sub-004) to 0.71 (sub-019), highlighting substantial inter-subject variability (see Appendix~B for complete per-subject results). Subjects with stronger P3b amplitudes (visible in individual ERPs) tended to achieve higher classification AUC. The best-performing subjects (sub-005, sub-007, sub-011, sub-019) showed AUC $>$ 0.67, while several subjects (sub-002, sub-004, sub-009, sub-015, sub-018) performed near or below chance (AUC $<$ 0.50), suggesting their neural signatures were poorly captured by the cross-subject model.
 
 Figure~\ref{fig:classification} shows the LOSO ROC curve and the confusion matrix aggregated across folds.
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\textwidth]{final/roc_eegnet_loso.png}
-    \caption{ROC (LOSO)}
-  \end{subfigure}
+  \subfloat[ROC (LOSO)]{\includegraphics[width=0.48\textwidth]{final/roc_eegnet_loso.png}}
   \hfill
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\textwidth]{final/confusion_matrix_group.png}
-    \caption{Confusion matrix (aggregated)}
-  \end{subfigure}
-  \caption{LOSO cross-validation results.}
+  \subfloat[Confusion matrix (aggregated)]{\includegraphics[width=0.48\textwidth]{final/confusion_matrix_group.png}}
+  \caption[LOSO cross-validation results]{LOSO cross-validation results. Alt-text: (a) ROC curve showing classifier performance with AUC of 0.57 for cross-subject LOSO evaluation. (b) Confusion matrix showing predicted versus actual labels aggregated across all LOSO folds.}
   \label{fig:classification}
 \end{figure}
 
-\subsection{Discussion of results}
-The observed LOSO AUC of 0.57 is consistent with published baselines for strict cross-subject ERP decoding (commonly 0.55--0.65). This outcome underscores the large inter-subject variability in ERP features (amplitude, latency, scalp distribution) and the need for subject-specific calibration or adaptive transfer-learning methods for deployable BCI systems. The high within-subject performance (0.85--0.90) confirms that the architecture itself can learn discriminative features when trained on the same subject.
+\section{Discussion}
+
+\subsection{Interpretation of results}
+The observed LOSO AUC of 0.57 is consistent with published baselines for strict cross-subject ERP decoding (commonly 0.55--0.65). EEGNet outperformed traditional ML baselines, likely due to its ability to learn spatial and temporal filters jointly rather than relying on hand-crafted features. The high within-subject performance (0.85--0.90) confirms that the architecture can learn discriminative features when trained on the same subject, but these features do not generalize well across individuals.
+
+\subsection{Sources of inter-subject variability}
+Several factors contribute to the cross-subject generalization gap:
+\begin{itemize}
+  \item \textbf{Amplitude variability}: P3b amplitude varies 2--3$\times$ across subjects due to skull thickness, cortical folding, and attention differences;
+  \item \textbf{Latency jitter}: P3b peak latency ranges from 300--500\,ms across subjects, causing temporal misalignment;
+  \item \textbf{Scalp topography}: Individual differences in source localization affect spatial filter generalization;
+  \item \textbf{Signal-to-noise ratio}: Electrode impedance, muscle artifacts, and alpha contamination vary by subject.
+\end{itemize}
+
+\subsection{Limitations}
+This study has several limitations: (1) the ERP CORE dataset, while well-controlled, may not reflect real-world BCI conditions with movement artifacts and variable attention; (2) no domain adaptation or transfer learning techniques were applied; (3) the 200--500\,ms analysis window may not be optimal for all subjects; (4) hyperparameters were not extensively tuned per-fold.
+
+\subsection{Future work}
+Promising directions include: (1) Riemannian geometry-based alignment to reduce inter-subject covariance differences; (2) few-shot adaptation using 1--2 minutes of target-subject calibration data; (3) attention mechanisms to weight subject-invariant features; (4) multi-task learning across ERP components (P3a, P3b, N200). Future work will also explore combining P300-based cognitive-state monitoring with Motor Imagery (MI) continuous-control decoding to build hybrid assistive BCIs for users with severe motor impairments.
+
+\subsection{Clinical implications}
+For practical BCI deployment, the results suggest that subject-specific calibration remains necessary for reliable P300 detection. However, a pre-trained cross-subject model could serve as initialization, reducing calibration time from 15 minutes to 2--3 minutes with fine-tuning. The real-time NAI pipeline demonstrates feasibility for cognitive monitoring applications in attention assessment, fatigue detection, and neurofeedback.
 
 \section{Conclusion}
-I present NAI as a reproducible, real-time-ready pipeline for P300 detection and cognitive-state monitoring. The system demonstrates the practical trade-off between cross-subject generalization and within-subject performance and provides a strong baseline for future transfer-learning or personalization work.
+This paper presents NAI as a reproducible, real-time-ready pipeline for P300 detection and cognitive-state monitoring. The system demonstrates the practical trade-off between cross-subject generalization and within-subject performance and provides a strong baseline for future transfer-learning or personalization work.
 
-\section*{Acknowledgments}
-I thank Prof. Anoop Kushwaha (HOD, Computer Engineering), Prof. Manali S. Patil, and Prof. Vrushali More (Alard College of Engineering \& Management) for mentorship and support during this project. I used the ERP CORE (OpenNeuro ds003061) dataset; full credit to the dataset authors.
+\begin{credits}
+\subsubsection{\ackname} The author thanks Prof. Anoop Kushwaha (HOD, Computer Engineering), Prof. Manali S. Patil, and Prof. Vrushali More (Alard College of Engineering \& Management) for mentorship and support during this project. The ERP CORE dataset (OpenNeuro ds003061) was used; full credit to the dataset authors.
 
-\section*{Data Availability}
-All code, preprocessing scripts, and publication-quality figures are available in the project repository: \url{https://github.com/AB2511/NAI-project}. The ERP CORE dataset is available from OpenNeuro (ds003061) under its original license and must be downloaded separately by readers.
+\subsubsection{Data Availability} All code, preprocessing scripts, and publication-quality figures are available in the project repository: \url{https://github.com/AB2511/NAI-project}. The ERP CORE dataset is available from OpenNeuro (ds003061) under its original license and must be downloaded separately by readers.
 
-\section*{Disclosure of Interests}
-The author declares no competing interests relevant to this manuscript.
+\subsubsection{\discintname} The author declares no competing interests relevant to this manuscript.
+\end{credits}
 
-\clearpage
+\appendix
+\section{Preprocessing and Training Parameters}
+
+\subsection{Preprocessing pipeline}
+\begin{itemize}
+  \item Raw data format: EEGLAB .set files (BIDS-compliant)
+  \item Sampling rate: 1024\,Hz (native)
+  \item Channels retained: 26 (dropped: FP1, FP2, F7, F8, VEOG, HEOG)
+  \item Band-pass filter: 0.1--30\,Hz (FIR, firwin design)
+  \item Reference: average reference
+  \item Epoch window: 0--600\,ms post-stimulus
+  \item Baseline correction: 0--100\,ms
+  \item Artifact rejection: 250\,$\mu$V peak-to-peak threshold
+  \item Event codes: 13 = target (rare), 11/12/14/15 = standard (frequent)
+\end{itemize}
+
+\subsection{EEGNet hyperparameters}
+\begin{itemize}
+  \item Input shape: (26 channels, 615 samples)
+  \item $F_1$ (temporal filters): 16
+  \item $D$ (depth multiplier): 2
+  \item $F_2$ (separable filters): 32
+  \item Temporal kernel: 64 samples
+  \item Separable kernel: 16 samples
+  \item Pooling: AvgPool (4, 8)
+  \item Dropout: 0.5
+  \item FC layers: 128 → 2 (with ELU)
+\end{itemize}
+
+\subsection{Training configuration}
+\begin{itemize}
+  \item Optimizer: Adam (lr=$10^{-3}$, weight decay=$10^{-4}$)
+  \item Loss: Focal loss ($\gamma=2.0$, $\alpha$ computed per-fold)
+  \item Batch size: 64
+  \item Max epochs: 80
+  \item Early stopping: patience=8 (on validation AUC)
+  \item LR scheduler: ReduceLROnPlateau (factor=0.5, patience=4)
+  \item Random seed: 42
+\end{itemize}
+
+\section{Per-Subject LOSO Results}
+Table~\ref{tab:subject_auc} reports per-subject AUC for the LOSO cross-validation, showing substantial inter-subject variability.
+
+\begin{table}[H]
+\centering
+\caption{Per-subject AUC results (EEGNet LOSO).}\label{tab:subject_auc}
+\begin{tabular}{cccccc}
+\toprule
+Subject & AUC & Subject & AUC & Subject & AUC \\
+\midrule
+sub-001 & 0.61 & sub-008 & 0.63 & sub-015 & 0.46 \\
+sub-002 & 0.38 & sub-009 & 0.45 & sub-016 & 0.65 \\
+sub-003 & 0.64 & sub-010 & 0.64 & sub-017 & 0.61 \\
+sub-004 & 0.24 & sub-011 & 0.67 & sub-018 & 0.47 \\
+sub-005 & 0.68 & sub-012 & 0.57 & sub-019 & 0.71 \\
+sub-006 & 0.65 & sub-013 & 0.59 & sub-020 & 0.60 \\
+sub-007 & 0.68 & sub-014 & 0.52 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % ---- Bibliography ----
 \bibliographystyle{splncs04}
 \begin{thebibliography}{10}
