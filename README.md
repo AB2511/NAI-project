@@ -10,7 +10,7 @@ Real-time EEG Cognitive State Monitoring Using P300 + Deep Learning
 - Built a **full real-time BCI system** (not just offline ML)
 - Includes **EEG acquisition → preprocessing → EEGNet → cognitive state inference → dashboard**
 - Trained with **LOSO (Leave-One-Subject-Out)** on 20-subject ERP CORE dataset
-- **Cross-subject AUC = 0.57** (realistic & scientifically accurate)
+- **Cross-subject AUC = 0.57** (evaluated under strict LOSO protocol)
 - **Within-subject AUC = 0.85–0.90** (high performance when individualized)
 - All figures below are **from real EEG data**, not simulated
 - Fully reproducible + transparent methodology
@@ -183,7 +183,7 @@ You must download it manually due to license constraints.
 @misc{barge2025nai,
   title   = {NeuroAdaptive Interface: Real-time EEG Cognitive State Monitoring},
   author  = {Anjali Barge},
-  year    = {2025},
+  year    = {2026},
   url     = {https://github.com/AB2511/NAI-project}
 }
 ```
