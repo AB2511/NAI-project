@@ -1,130 +1,296 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage{geometry}
+% Camera-ready for Springer CCIS / LNCS (llncs.cls)
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{subfig}
 \usepackage{float}
+\usepackage{microtype}
+\usepackage{url}
 \usepackage{hyperref}
+\usepackage{bbding}
 
-\geometry{margin=1in}
-
-\title{P300 Oddball Experiment: Real-time ERP Analysis and Fatigue Monitoring}
-\author{NeuroAdaptive Interface Research}
-\date{November 17, 2025}
-
+% Metadata
 \begin{document}
+
+\title{NeuroAdaptive Interface (NAI): Real-Time P300 Detection and Cognitive-State Monitoring using EEGNet and Cross-Subject Evaluation}
+\titlerunning{NeuroAdaptive Interface (NAI)}
+
+\author{Anjali Barge\inst{1}\orcidID{0009-0005-1983-9214}\Envelope}
+\authorrunning{A. Barge}
+
+\institute{Alard College of Engineering and Management (Affiliated to Savitribai Phule Pune University), Pune, India \\
+\email{bargeanjali650@gmail.com}}
 
 \maketitle
 
 \begin{abstract}
-This report presents results from a P300 oddball experiment using the OpenNeuro dataset (ds003061). 
-We analyzed 244 target trials to extract P300 event-related potentials, 
-compute fatigue indices, and develop a real-time classifier. The mean P300 amplitude was 
-34.61 ± 5.81 µV with a latency of 
-352.2 ± 45.5 ms. 
-Fatigue analysis revealed a maximum fatigue index of 0.334, 
-indicating measurable amplitude decline over the experimental session.
+Can a P300 classifier trained on 19 people work on someone it has never seen? This question drives the present work. We built the NeuroAdaptive Interface (NAI) a pipeline that streams EEG through Lab Streaming Layer, extracts epochs, runs them through a compact convolutional network, and pushes predictions to a live dashboard. To stress-test generalization, we evaluated on 20 subjects from the ERP CORE P3b dataset using leave-one-subject-out folds. Cross-subject AUC landed at $0.57 \pm 0.12$. While modest, this performance is consistent with what strict LOSO protocols produce elsewhere in the literature. The same model, when trained and tested within a single subject, reached $0.85$--$0.90$ AUC. That gap nearly 30 points is the main result. It quantifies how much current architectures rely on subject-specific signal structure. We release the full code to let others reproduce these numbers and, hopefully, close the gap.
+\keywords{EEG \and P300 \and BCI \and EEGNet \and LOSO \and ERP CORE}
 \end{abstract}
 
 \section{Introduction}
+A brain--computer interface that works out of the box no calibration, no training session, just strap on the headset and go. That vision has motivated BCI research for decades \cite{farwell1988talking}, yet remains largely unrealized. The bottleneck is not hardware. Consumer-grade EEG devices now cost under \$500 and stream reliably over Bluetooth. The bottleneck is the classifier.
 
-The P300 component is a well-established event-related potential (ERP) that reflects cognitive 
-processing and attention allocation. In oddball paradigms, infrequent target stimuli elicit 
-larger P300 responses compared to frequent non-target stimuli. This experiment analyzes P300 
-characteristics and implements real-time fatigue monitoring for neuro-adaptive applications.
+EEG signals vary wildly between individuals. Skull thickness, cortical geometry, electrode contact, background alpha rhythms all of these shift the statistics of the recorded signal in ways that confound machine learning models. A classifier trained on Alice may perform at chance on Bob, even when both show clear P300 responses to the same oddball task \cite{sutton1965p300,krusienski2006comparison}. This inter-subject gap is well documented, yet many published systems sidestep it by mixing subjects during training and testing, or by reporting only within-subject accuracy.
+
+We wanted to know how bad the gap really is. So we built a complete BCI pipeline acquisition, preprocessing, inference, visualization and evaluated it under the strictest protocol we could justify: leave-one-subject-out (LOSO) cross-validation on 20 subjects from the ERP CORE P3b dataset. Every fold trains on 19 people and tests on the 20th. No overlap. No leakage.
+
+The classifier is a variant of EEGNet \cite{lawhern2018eegnet}, chosen because it learns spatial and temporal filters jointly and has relatively few parameters. Under LOSO, it achieved an AUC of $0.57 \pm 0.12$. This performance is modest in absolute terms, but it matches what other groups report when they use similarly strict validation, and it is meaningfully above chance (AUC = 0.50). More importantly, the same architecture hit $0.85$--$0.90$ AUC when trained and tested within individual subjects. The architecture is not broken; the cross-subject signal structure is.
+
+This paper contributes three things. First, a reproducible baseline for cross-subject P300 decoding under honest evaluation. Second, a working real-time system dubbed the NeuroAdaptive Interface (NAI) that streams EEG via Lab Streaming Layer, runs inference on each epoch, and displays cognitive state on a Streamlit dashboard. Third, a frank discussion of where the field stands and what it will take to close the generalization gap.
+
+\section{Related Work}
+
+\subsection{P300 spellers and their calibration burden}
+
+Sutton and colleagues first noticed that unexpected stimuli produce a positive voltage deflection around 300--500~ms post-stimulus \cite{sutton1965p300}. Farwell and Donchin turned this observation into a communication device: flash letters on a screen, detect which flash elicits a P300, and you know which letter the user intended \cite{farwell1988talking}. The idea was elegant. The engineering was not.
+
+Early systems relied on stepwise linear discriminant analysis (SWLDA) and required 15--30 minutes of calibration per user \cite{krusienski2006comparison}. That calibration session collected enough target and non-target epochs to fit a subject-specific classifier. Without it, accuracy dropped sharply. Some groups tried pooling data across subjects, but the resulting models rarely matched subject-specific ones. The P300 response, it turned out, is not as stereotyped as textbooks suggest. Amplitude can vary two- or threefold between individuals; latency can shift by 100~ms or more; scalp topography depends on cortical folding that differs from brain to brain.
+
+\subsection{Compact neural networks for EEG}
+
+Hand-crafted features gave way to learned features once convolutional networks proved they could extract useful representations from raw or minimally filtered EEG. The challenge was parameter count: EEG datasets are small by deep learning standards, and overfitting is easy.
+
+Lawhern et al.\ addressed this with EEGNet \cite{lawhern2018eegnet}, a network built around depthwise and separable convolutions. The first layer learns temporal filters; the second learns spatial filters that mix channels; the third refines the representation. Total parameter count stays in the tens of thousands rather than millions. On motor imagery, error-related potentials, and P300 tasks, EEGNet matched or beat heavier architectures while training faster and generalizing better to held-out trials from the same subject.
+
+The catch is that ``held-out trials from the same subject'' is not the same as ``held-out subjects.'' When researchers split data at the trial level but keep all subjects in both train and test sets, the model can memorize subject-specific quirks. LOSO validation removes that crutch. Under LOSO, EEGNet and similar networks typically land in the 0.55--0.65 AUC range for P300 tasks---above chance, but far from the 0.85+ numbers seen in within-subject splits.
+
+\subsection{Attempts to close the gap}
+
+Several strategies have been proposed to improve cross-subject transfer. Euclidean alignment shifts each subject's covariance matrix toward a common reference. Riemannian methods operate on the manifold of symmetric positive definite matrices, where geodesic distances better capture EEG geometry. Adversarial domain adaptation tries to learn features that a discriminator cannot attribute to any particular subject.
+
+These methods help, but not by much typically 5--10 percentage points in AUC when no target-subject data is available. Gains jump higher if you allow even a few minutes of calibration from the target user, but that reintroduces the burden the field is trying to escape. The honest summary is that calibration-free cross-subject ERP decoding remains unsolved. Published improvements should be read carefully: many assume access to unlabeled target data, or use validation splits that mix subjects. We adopt strict LOSO precisely to avoid those pitfalls.
 
 \section{Methods}
 
-\subsection{Dataset}
-We used the OpenNeuro P300 dataset (ds003061) containing EEG recordings from oddball experiments.
-The dataset includes:
-\begin{itemize}
-    \item 32-channel EEG at 256 Hz sampling rate
-    \item Target probability: ~20\%
-    \item Total trials analyzed: 244
-    \item Analysis channel: Pz (optimal for P300)
-\end{itemize}
-
-\subsection{Signal Processing}
+\subsection{System overview}
+The NAI pipeline (Fig.~\ref{fig:architecture}) includes:
 \begin{enumerate}
-    \item Epoching: -100 to +800 ms around stimulus onset
-    \item Baseline correction: -100 to 0 ms
-    \item P300 detection window: 250-450 ms post-stimulus
-    \item Fatigue index: $fatigue = 1 - \frac{amplitude}{baseline\_mean}$
+  \item EEG acquisition using Lab Streaming Layer (LSL) \cite{kothe2019lsl},
+  \item preprocessing and epoching (ERP pipeline),
+  \item EEGNet inference for P300 detection,
+  \item a lightweight cognitive-state mapping and a Streamlit dashboard for real-time feedback.
 \end{enumerate}
 
-\subsection{Classification}
-A simple threshold classifier was implemented:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{final/system_architecture.png}
+  \caption[Conceptual overview of the NAI pipeline]{Conceptual overview of the NAI pipeline: acquisition, preprocessing, inference, and dashboard. Alt-text: Block diagram showing the NAI pipeline with four stages: LSL acquisition, ERP preprocessing, EEGNet inference, and Streamlit dashboard.}
+  \label{fig:architecture}
+\end{figure}
+
+\subsection{Dataset}
+We used the ERP CORE P3b dataset \cite{kappenman2021erp}, hosted on OpenNeuro under accession ds003061. The dataset follows BIDS conventions, which simplified our preprocessing scripts. Each of the 20 subjects completed a visual oddball task. Rare stimuli (targets) appeared roughly 80 times per session; frequent stimuli (non-targets) appeared about 320 times. That 1:4 ratio creates the class imbalance we address later.
+
+\subsection{Preprocessing}
+Preprocessing relied on MNE-Python \cite{gramfort2013mne} (version 1.6.0). We band-passed the data from 0.1 to 30~Hz, extracted epochs from 0 to 600~ms relative to stimulus onset, applied baseline correction using the 0 to 100~ms window, rejected trials exceeding a 250~$\mu$V peak-to-peak threshold, and re-referenced the data to the common average. A post-stimulus baseline was used to reduce pre-stimulus noise variability, which was substantial in several subjects, and to stabilize early ERP amplitudes under cross-subject evaluation. From these cleaned epochs we computed grand-average waveforms and topographic maps at the P3b peak.
+
+\subsection{Model and training}
+We implemented EEGNet \cite{lawhern2018eegnet} in PyTorch 2.0 with this architecture:
 \begin{itemize}
-    \item Threshold: 34.61 µV
-    \item Offline accuracy: 89.1\%
+  \item Temporal convolution: $F_1=16$ filters, kernel size 64 samples (around 62 ms at 1024 Hz),
+  \item Depthwise spatial convolution: depth multiplier $D=2$, resulting in 32 feature maps,
+  \item Separable convolution: $F_2=32$ filters, kernel size 16,
+  \item Pooling: average pooling with factors 4 and 8,
+  \item Regularization: dropout at $p=0.5$, batch normalization after each convolution,
+  \item Classifier: two fully connected layers (128 units, ELU activation).
 \end{itemize}
+
+Class imbalance (4:1 non-target to target) required countermeasures. We used focal loss ($\gamma=2.0$) with per-fold class weights, oversampled targets during training, and augmented on the fly with temporal jitter ($\pm8$~ms), Gaussian noise ($\sigma=0.005$), channel dropout (12\%), and time masking (20~ms blocks). Optimization used Adam (lr=$10^{-3}$, weight decay=$10^{-4}$) with early stopping (patience 8) and learning-rate reduction on plateau.
+
+For LOSO, we ran 20 folds. In each fold, 19 subjects contributed training data (roughly 3768 epochs pooled) and the remaining subject served as the test set (around 200 epochs). Standardization zero mean, unit variance was computed on training data only and then applied to the held-out subject. We ran everything on a laptop (13th Gen Intel i5-13420H, 16~GB RAM, no GPU) with a fixed seed of 42. Full parameter tables appear in Appendix~A.
+
+\subsection{Evaluation metrics}
+We report AUC (area under the ROC curve) as the primary metric because accuracy is misleading when classes are imbalanced 4:1. Mean and standard deviation are computed across the 20 LOSO folds. Scripts to regenerate these numbers are in the repository.
 
 \section{Results}
 
-\subsection{P300 Characteristics}
-\begin{table}[H]
-\centering
-\begin{tabular}{lc}
-\toprule
-Parameter & Value \\
-\midrule
-Mean Amplitude & 34.61 ± 5.81 µV \\
-Mean Latency & 352.2 ± 45.5 ms \\
-Number of Trials & 244 \\
-Analysis Channel & Pz \\
-\bottomrule
-\end{tabular}
-\caption{P300 Component Characteristics}
-\end{table}
-
-\subsection{Fatigue Analysis}
-The fatigue monitoring revealed:
-\begin{itemize}
-    \item Maximum fatigue index: 0.334
-    \item Final fatigue index: 0.300
-    \item Progressive amplitude decline observed over trials
-\end{itemize}
+\subsection{Neurophysiology}
+Before diving into classification, we verified that the data actually contain a P300. Fig.~\ref{fig:erp_topo}(a) plots the grand-average waveform at electrode Pz, where targets show a clear positive deflection peaking near 400~ms. Fig.~\ref{fig:erp_topo}(b) maps scalp voltage at that latency; the parietal maximum confirms we are looking at a textbook P3b. Note that the topographic map represents the target minus non-target voltage difference at the P3b peak latency, rather than raw P300 amplitude.
 
 \begin{figure}[H]
+  \centering
+  \subfloat[Grand-average ERP at Pz]{\includegraphics[width=0.48\textwidth]{final/erp_grand_target_vs_nontarget.png}}
+  \hfill
+  \subfloat[Topographic map at P300 peak]{\includegraphics[width=0.48\textwidth]{final/topomap_group_peak.png}}
+  \caption[ERP and topography]{ERP and topography illustrating the P3b response (figures derived from ERP CORE P3b data after preprocessing). Alt-text: (a) Line plot showing grand-average ERP waveforms at Pz for target and non-target conditions, with P300 peak around 400ms. (b) Topographic scalp map highlighting parietal positivity at P300 peak latency.}
+  \label{fig:erp_topo}
+\end{figure}
+
+\subsection{Classification performance}
+Table~\ref{tab:auc} compares methods. EEGNet reached a LOSO AUC of $0.57 \pm 0.12$, beating LDA ($0.53 \pm 0.10$), SVM ($0.51 \pm 0.09$), and XGBoost ($0.51 \pm 0.11$). When we trained and tested within individual subjects, AUC jumped to $0.85$--$0.90$.
+
+\begin{table}[H]
 \centering
-\includegraphics[width=\textwidth]{research_paper_figures.png}
-\caption{P300 Analysis Results. (A) P300 amplitude decline showing fatigue effects. 
-(B) P300 latency distribution. (C) Fatigue index progression. (D) Amplitude-latency 
-relationship colored by fatigue level.}
-\label{fig:results}
+\caption{Classification comparison (LOSO cross-validation, 20 folds).}\label{tab:auc}
+\begin{tabular}{lccc}
+\toprule
+Method & AUC (mean $\pm$ std) & Accuracy & Setting \\
+\midrule
+EEGNet & $0.57 \pm 0.12$ & 0.22 & cross-subject \\
+LDA & $0.53 \pm 0.10$ & 0.95 & cross-subject \\
+SVM (RBF) & $0.51 \pm 0.09$ & 0.95 & cross-subject \\
+XGBoost & $0.51 \pm 0.11$ & 0.95 & cross-subject \\
+Logistic Reg. & $0.49 \pm 0.10$ & 0.72 & cross-subject \\
+\midrule
+EEGNet & $0.85$--$0.90$ & 0.80--0.85 & within-subject \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Why do LDA and SVM show 95\% accuracy? They predict ``non-target'' for nearly every trial, which is correct 80\% of the time by chance. AUC ignores this trick; accuracy does not. We include accuracy only for completeness.
+
+\subsection{Per-subject variability}
+AUC ranged from 0.24 (sub-004, essentially at chance) to 0.71 (sub-019). Appendix~B lists every subject. Four subjects exceeded 0.67: sub-005, sub-007, sub-011, sub-019. Five fell below 0.50: sub-002, sub-004, sub-009, sub-015, sub-018. Visual inspection of individual ERPs suggests that subjects with weak or late P3b peaks are the ones the model fails on. The cross-subject model, trained mostly on ``typical'' responders, has no template for outliers.
+
+Figure~\ref{fig:roc} shows the LOSO ROC curve.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{final/roc_eegnet_loso.png}
+  \caption[LOSO ROC curve]{ROC curve for EEGNet under LOSO cross-validation (mean AUC = $0.57 \pm 0.12$ across 20 folds). Alt-text: ROC curve showing classifier performance with AUC of 0.57 for cross-subject LOSO evaluation, with shaded region indicating standard deviation across folds.}
+  \label{fig:roc}
 \end{figure}
 
 \section{Discussion}
 
-The results demonstrate successful P300 extraction and fatigue monitoring from the OpenNeuro 
-dataset. The observed P300 characteristics (amplitude: 34.6 µV, 
-latency: 352 ms) are consistent with literature values for 
-oddball paradigms.
+\subsection{Interpretation of results}
+An AUC of 0.57 sounds low, but it sits squarely in the range reported by other groups who use strict LOSO on P300 data (typically 0.55--0.65). EEGNet beat the classical baselines, probably because it learns spatial and temporal filters jointly rather than relying on hand-picked features. The within-subject numbers ($0.85$--$0.90$) confirm the architecture works fine when it sees the same person during training. The gap is not a model problem; it is a data-distribution problem.
 
-The fatigue analysis reveals measurable amplitude decline over the experimental session, 
-validating the utility of P300 monitoring for neuro-adaptive applications. The real-time 
-classifier achieved 89.1\% 
-accuracy, suitable for online BCI applications.
-
-\section{Conclusion}
-
-This study successfully implemented P300 analysis and fatigue monitoring using real EEG data. 
-The methodology provides a foundation for real-time neuro-adaptive interfaces that can detect 
-cognitive state changes and implement appropriate interventions.
-
-\subsection{Technical Implementation}
-The complete analysis pipeline includes:
+\subsection{Sources of inter-subject variability}
+Why does cross-subject decoding fail? Several factors compound:
 \begin{itemize}
-    \item Real-time EEG processing with MNE-Python
-    \item P300 detection and classification
-    \item Fatigue index computation
-    \item Streamlit dashboard for visualization
-    \item JSON export for reproducible research
+  \item P3b amplitude varies two- to threefold across individuals (skull thickness, cortical folding, attention fluctuations).
+  \item Peak latency spans 300--500~ms, so a fixed temporal filter misses some subjects.
+  \item Scalp topography shifts with head shape and source depth.
+  \item Noise floors differ: electrode impedance, muscle artifacts, and alpha intrusion vary by session and subject.
 \end{itemize}
 
-\section{Data Availability}
-All analysis code, calibration parameters, and results are available in the project repository. 
-Calibration data is exported as JSON for reproducibility and integration with real-time systems.
+\subsection{Limitations}
+Four caveats apply. First, ERP CORE is a clean lab dataset; real-world recordings include movement artifacts and wandering attention. Second, we did not try domain adaptation or transfer learning. Third, the analysis window (roughly 0--600~ms) may not suit every subject. Fourth, hyperparameters were fixed across folds rather than tuned per fold.
+
+\subsection{Future work}
+Several directions look promising: Riemannian alignment to reduce covariance mismatch, few-shot fine-tuning with 1--2 minutes of target-subject data, attention layers that weight subject-invariant features, and multi-task learning across P3a, P3b, and N200. Longer term, combining P300-based discrete selection with motor-imagery continuous control could yield hybrid BCIs for users with severe motor impairments.
+
+\subsection{Clinical implications}
+For now, subject-specific calibration remains necessary for reliable P300 detection. But a pre-trained cross-subject model can shorten calibration from 15 minutes to 2--3 minutes if fine-tuned on a handful of target epochs. The real-time NAI pipeline also opens doors for cognitive monitoring---attention tracking, fatigue detection, neurofeedback---where perfect accuracy matters less than trend detection.
+
+\section{Conclusion}
+NAI is a reproducible, end-to-end pipeline for real-time P300 detection and cognitive-state monitoring. Cross-subject LOSO AUC of $0.57 \pm 0.12$ is modest but honest; within-subject AUC of 0.85--0.90 shows the architecture is not the bottleneck. The gap between these numbers defines the challenge for future work on transfer learning and lightweight personalization.
+
+\begin{credits}
+\subsubsection{\ackname} The author thanks Prof. Anoop Kushwaha (HOD, Computer Engineering), Prof. Manali S. Patil, and Prof. Vrushali More (Alard College of Engineering \& Management) for their mentorship and support during this project. The ERP CORE dataset (OpenNeuro ds003061) was used, with full credit given to the dataset authors.
+
+\subsubsection{Data Availability} All code, preprocessing scripts, and publication-quality figures are available in the project repository: \url{https://github.com/AB2511/NAI-project}. The ERP CORE dataset can be found on OpenNeuro (ds003061) under its original license and must be downloaded separately by readers.
+
+\subsubsection{\discintname} The author declares no competing interests relevant to this manuscript.
+\end{credits}
+
+\appendix
+\section{Preprocessing and Training Parameters}
+These parameters reflect the exact configuration used to generate all reported figures and results.
+
+\subsection{Preprocessing pipeline}
+\begin{itemize}
+  \item Raw data format: EEGLAB .set files (BIDS-compliant)
+  \item Sampling rate: 1024~Hz (native)
+  \item Channels retained: 26 (dropped: FP1, FP2, F7, F8, VEOG, HEOG)
+  \item Band-pass filter: 0.1--30~Hz (FIR, firwin design)
+  \item Reference: average reference
+  \item Epoch window: 0--600~ms post-stimulus
+  \item Baseline correction: 0--100~ms
+  \item Artifact rejection: 250~$\mu$V peak-to-peak threshold
+  \item Event codes: 13 = target (rare), 11/12/14/15 = standard (frequent)
+\end{itemize}
+
+\subsection{EEGNet hyperparameters}
+\begin{itemize}
+  \item Input shape: (26 channels, 615 samples)
+  \item $F_1$ (temporal filters): 16
+  \item $D$ (depth multiplier): 2
+  \item $F_2$ (separable filters): 32
+  \item Temporal kernel: 64 samples
+  \item Separable kernel: 16 samples
+  \item Pooling: AvgPool (4, 8)
+  \item Dropout: 0.5
+  \item FC layers: 128 $\rightarrow$ 2 (with ELU)
+\end{itemize}
+
+\subsection{Training configuration}
+\begin{itemize}
+  \item Optimizer: Adam (lr=$10^{-3}$, weight decay=$10^{-4}$)
+  \item Loss: Focal loss ($\gamma=2.0$, $\alpha$ computed per-fold)
+  \item Batch size: 64
+  \item Max epochs: 80
+  \item Early stopping: patience=8 (on validation AUC)
+  \item LR scheduler: ReduceLROnPlateau (factor=0.5, patience=4)
+  \item Random seed: 42
+\end{itemize}
+
+\section{Per-Subject LOSO Results}
+Table~\ref{tab:subject_auc} lists per-subject AUC for the LOSO cross-validation, showing significant variability between subjects.
+
+\begin{table}[H]
+\centering
+\caption{Per-subject AUC results (EEGNet LOSO).}\label{tab:subject_auc}
+\begin{tabular}{cccccc}
+\toprule
+Subject & AUC & Subject & AUC & Subject & AUC \\
+\midrule
+sub-001 & 0.61 & sub-008 & 0.63 & sub-015 & 0.46 \\
+sub-002 & 0.38 & sub-009 & 0.45 & sub-016 & 0.65 \\
+sub-003 & 0.64 & sub-010 & 0.64 & sub-017 & 0.61 \\
+sub-004 & 0.24 & sub-011 & 0.67 & sub-018 & 0.47 \\
+sub-005 & 0.68 & sub-012 & 0.57 & sub-019 & 0.71 \\
+sub-006 & 0.65 & sub-013 & 0.59 & sub-020 & 0.60 \\
+sub-007 & 0.68 & sub-014 & 0.52 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---- Bibliography ----
+\bibliographystyle{splncs04}
+\begin{thebibliography}{10}
+
+\bibitem{sutton1965p300}
+Sutton, S., Braren, M., Zubin, J., John, E.R.:
+Evoked-potential correlates of stimulus uncertainty.
+Science \textbf{150}(3700), 1187--1188 (1965). \url{https://doi.org/10.1126/science.150.3700.1187}
+
+\bibitem{farwell1988talking}
+Farwell, L.A., Donchin, E.:
+Talking off the top of your head: toward a mental prosthesis utilizing event-related brain potentials.
+Electroencephalography and Clinical Neurophysiology \textbf{70}(6), 510--523 (1988). \url{https://doi.org/10.1016/0013-4694(88)90149-6}
+
+\bibitem{krusienski2006comparison}
+Krusienski, D.J., Sellers, E.W., Cabestaing, F., Bayoudh, S., McFarland, D.J., Vaughan, T.M., Wolpaw, J.R.:
+A comparison of classification techniques for the P300 Speller.
+Journal of Neural Engineering \textbf{3}(4), 299--305 (2006). \url{https://doi.org/10.1088/1741-2560/3/4/007}
+
+\bibitem{lawhern2018eegnet}
+Lawhern, V.J., Solon, A.J., Waytowich, N.R., Gordon, S.M., Hung, C.P., Lance, B.J.:
+EEGNet: a compact convolutional neural network for EEG-based brain--computer interfaces.
+Journal of Neural Engineering \textbf{15}(5), 056013 (2018). \url{https://doi.org/10.1088/1741-2552/aace8c}
+
+\bibitem{kothe2019lsl}
+Kothe, C.:
+Lab Streaming Layer (LSL).
+\url{https://github.com/sccn/labstreaminglayer} (2019)
+
+\bibitem{gramfort2013mne}
+Gramfort, A., Luessi, M., Larson, E., Engemann, D.A., Strohmeier, D., Brodbeck, C., Goj, R., Jas, M., Brooks, T., Parkkonen, L., H\"am\"al\"ainen, M.:
+MEG and EEG data analysis with MNE-Python.
+Frontiers in Neuroscience \textbf{7}, 267 (2013). \url{https://doi.org/10.3389/fnins.2013.00267}
+
+\bibitem{kappenman2021erp}
+Kappenman, E.S., Farrens, J.L., Zhang, W., Stewart, A.X., Luck, S.J.:
+ERP CORE: An open resource for human event-related potential research.
+NeuroImage \textbf{225}, 117465 (2021). \url{https://doi.org/10.1016/j.neuroimage.2020.117465}
+
+\end{thebibliography}
 
 \end{document}

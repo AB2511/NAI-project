@@ -71,9 +71,13 @@ def create_simple_topomap(data, title, filename):
 # Generate topomaps
 try:
     topo_300 = np.load(ROOT / "results" / "topomaps" / "group_diff_300ms.npy")
+    # Convert from V to µV
+    topo_300 = topo_300 * 1e6
     create_simple_topomap(topo_300, "P300 Difference Topomap (300ms)", "topomap_group_300ms")
     
     topo_peak = np.load(ROOT / "results" / "topomaps" / "group_diff_peakms.npy")
+    # Convert from V to µV
+    topo_peak = topo_peak * 1e6
     create_simple_topomap(topo_peak, "P300 Difference Topomap (Peak)", "topomap_group_peak")
     
     print("✅ Topomaps generated successfully!")
