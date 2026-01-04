@@ -28,20 +28,20 @@
 \maketitle
 
 \begin{abstract}
-Can a P300 classifier trained on 19 people work on someone it has never seen? This question drives the present work. We built the NeuroAdaptive Interface (NAI) a pipeline that streams EEG through Lab Streaming Layer, extracts epochs, runs them through a compact convolutional network, and pushes predictions to a live dashboard. To stress-test generalization, we evaluated on 20 subjects from the ERP CORE P3b dataset using leave-one-subject-out folds. Cross-subject AUC landed at $0.57 \pm 0.12$. While modest, this performance is consistent with what strict LOSO protocols produce elsewhere in the literature. The same model, when trained and tested within a single subject, reached $0.85$--$0.90$ AUC. That gap nearly 30 points is the main result. It quantifies how much current architectures rely on subject-specific signal structure. We release the full code to let others reproduce these numbers and, hopefully, close the gap.
+Can a P300 classifier trained on 19 people work on someone it has never seen? This question drives the present work. We built the NeuroAdaptive Interface (NAI), a pipeline that streams EEG through Lab Streaming Layer, extracts epochs, runs them through a compact convolutional network, and pushes predictions to a live dashboard. To stress-test generalization, we evaluated on 20 subjects from the ERP CORE P3b dataset using leave-one-subject-out folds. Cross-subject AUC landed at $0.57 \pm 0.12$. While modest, this performance is consistent with what strict LOSO protocols produce elsewhere in the literature. The same model, when trained and tested within a single subject, reached $0.85$--$0.90$ AUC. That nearly 30-point gap is the main result. It quantifies how much current architectures rely on subject-specific signal structure. We release the full code to let others reproduce these numbers and, hopefully, close the gap.
 \keywords{EEG \and P300 \and BCI \and EEGNet \and LOSO \and ERP CORE}
 \end{abstract}
 
 \section{Introduction}
-A brain--computer interface that works out of the box no calibration, no training session, just strap on the headset and go. That vision has motivated BCI research for decades \cite{farwell1988talking}, yet remains largely unrealized. The bottleneck is not hardware. Consumer-grade EEG devices now cost under \$500 and stream reliably over Bluetooth. The bottleneck is the classifier.
+A brain--computer interface that works out of the box---no calibration, no training session, just strap on the headset and go. That vision has motivated BCI research for decades \cite{farwell1988talking}, yet remains largely unrealized. The bottleneck is not hardware. Consumer-grade EEG devices now cost under \$500 and stream reliably over Bluetooth. The bottleneck is the classifier.
 
-EEG signals vary wildly between individuals. Skull thickness, cortical geometry, electrode contact, background alpha rhythms all of these shift the statistics of the recorded signal in ways that confound machine learning models. A classifier trained on Alice may perform at chance on Bob, even when both show clear P300 responses to the same oddball task \cite{sutton1965p300,krusienski2006comparison}. This inter-subject gap is well documented, yet many published systems sidestep it by mixing subjects during training and testing, or by reporting only within-subject accuracy.
+EEG signals vary wildly between individuals. Skull thickness, cortical geometry, electrode contact, and background alpha rhythms---all of these shift the statistics of the recorded signal in ways that confound machine learning models. A classifier trained on Alice may perform at chance on Bob, even when both show clear P300 responses to the same oddball task \cite{sutton1965p300,krusienski2006comparison}. This inter-subject gap is well documented, yet many published systems sidestep it by mixing subjects during training and testing, or by reporting only within-subject accuracy.
 
-We wanted to know how bad the gap really is. So we built a complete BCI pipeline acquisition, preprocessing, inference, visualization and evaluated it under the strictest protocol we could justify: leave-one-subject-out (LOSO) cross-validation on 20 subjects from the ERP CORE P3b dataset. Every fold trains on 19 people and tests on the 20th. No overlap. No leakage.
+We wanted to know how bad the gap really is. So we built a complete BCI pipeline---acquisition, preprocessing, inference, visualization---and evaluated it under the strictest protocol we could justify: leave-one-subject-out (LOSO) cross-validation on 20 subjects from the ERP CORE P3b dataset. Every fold trains on 19 people and tests on the 20th. No overlap. No leakage.
 
 The classifier is a variant of EEGNet \cite{lawhern2018eegnet}, chosen because it learns spatial and temporal filters jointly and has relatively few parameters. Under LOSO, it achieved an AUC of $0.57 \pm 0.12$. This performance is modest in absolute terms, but it matches what other groups report when they use similarly strict validation, and it is meaningfully above chance (AUC = 0.50). More importantly, the same architecture hit $0.85$--$0.90$ AUC when trained and tested within individual subjects. The architecture is not broken; the cross-subject signal structure is.
 
-This paper contributes three things. First, a reproducible baseline for cross-subject P300 decoding under honest evaluation. Second, a working real-time system dubbed the NeuroAdaptive Interface (NAI) that streams EEG via Lab Streaming Layer, runs inference on each epoch, and displays cognitive state on a Streamlit dashboard. Third, a frank discussion of where the field stands and what it will take to close the generalization gap.
+This paper contributes three things. First, a reproducible baseline for cross-subject P300 decoding under honest evaluation. Second, a working real-time system---dubbed the NeuroAdaptive Interface (NAI)---that streams EEG via Lab Streaming Layer, runs inference on each epoch, and displays cognitive state on a Streamlit dashboard. Third, a frank discussion of where the field stands and what it will take to close the generalization gap.
 
 \section{Related Work}
 
@@ -63,7 +63,7 @@ The catch is that ``held-out trials from the same subject'' is not the same as `
 
 Several strategies have been proposed to improve cross-subject transfer. Euclidean alignment shifts each subject's covariance matrix toward a common reference. Riemannian methods operate on the manifold of symmetric positive definite matrices, where geodesic distances better capture EEG geometry. Adversarial domain adaptation tries to learn features that a discriminator cannot attribute to any particular subject.
 
-These methods help, but not by much typically 5--10 percentage points in AUC when no target-subject data is available. Gains jump higher if you allow even a few minutes of calibration from the target user, but that reintroduces the burden the field is trying to escape. The honest summary is that calibration-free cross-subject ERP decoding remains unsolved. Published improvements should be read carefully: many assume access to unlabeled target data, or use validation splits that mix subjects. We adopt strict LOSO precisely to avoid those pitfalls.
+These methods help, but not by much---typically 5--10 percentage points in AUC when no target-subject data is available. Gains jump higher if you allow even a few minutes of calibration from the target user, but that reintroduces the burden the field is trying to escape. The honest summary is that calibration-free cross-subject ERP decoding remains unsolved. Published improvements should be read carefully: many assume access to unlabeled target data, or use validation splits that mix subjects. We adopt strict LOSO precisely to avoid those pitfalls.
 
 \section{Methods}
 
@@ -87,7 +87,7 @@ The NAI pipeline (Fig.~\ref{fig:architecture}) includes:
 We used the ERP CORE P3b dataset \cite{kappenman2021erp}, hosted on OpenNeuro under accession ds003061. The dataset follows BIDS conventions, which simplified our preprocessing scripts. Each of the 20 subjects completed a visual oddball task. Rare stimuli (targets) appeared roughly 80 times per session; frequent stimuli (non-targets) appeared about 320 times. That 1:4 ratio creates the class imbalance we address later.
 
 \subsection{Preprocessing}
-Preprocessing relied on MNE-Python \cite{gramfort2013mne} (version 1.6.0). We band-passed the data from 0.1 to 30~Hz, extracted epochs from 0 to 600~ms relative to stimulus onset, applied baseline correction using the 0 to 100~ms window, rejected trials exceeding a 250~$\mu$V peak-to-peak threshold, and re-referenced the data to the common average. A post-stimulus baseline was used to reduce pre-stimulus noise variability, which was substantial in several subjects, and to stabilize early ERP amplitudes under cross-subject evaluation. From these cleaned epochs we computed grand-average waveforms and topographic maps at the P3b peak.
+Preprocessing relied on MNE-Python \cite{gramfort2013mne} (version 1.6.0). We band-passed the data from 0.1 to 30~Hz, extracted epochs from 0 to 600~ms relative to stimulus onset, applied baseline correction using the 0 to 100~ms window, rejected trials exceeding a 250~$\mu$V peak-to-peak threshold, and re-referenced the data to the common average. Baseline correction used the 0--100~ms post-stimulus interval, which empirically reduced early noise variability across subjects and stabilized initial ERP amplitudes under cross-subject evaluation. From these cleaned epochs we computed grand-average waveforms and topographic maps at the P3b peak.
 
 \subsection{Model and training}
 We implemented EEGNet \cite{lawhern2018eegnet} in PyTorch 2.0 with this architecture:
@@ -102,7 +102,7 @@ We implemented EEGNet \cite{lawhern2018eegnet} in PyTorch 2.0 with this architec
 
 Class imbalance (4:1 non-target to target) required countermeasures. We used focal loss ($\gamma=2.0$) with per-fold class weights, oversampled targets during training, and augmented on the fly with temporal jitter ($\pm8$~ms), Gaussian noise ($\sigma=0.005$), channel dropout (12\%), and time masking (20~ms blocks). Optimization used Adam (lr=$10^{-3}$, weight decay=$10^{-4}$) with early stopping (patience 8) and learning-rate reduction on plateau.
 
-For LOSO, we ran 20 folds. In each fold, 19 subjects contributed training data (roughly 3768 epochs pooled) and the remaining subject served as the test set (around 200 epochs). Standardization zero mean, unit variance was computed on training data only and then applied to the held-out subject. We ran everything on a laptop (13th Gen Intel i5-13420H, 16~GB RAM, no GPU) with a fixed seed of 42. Full parameter tables appear in Appendix~A.
+For LOSO, we ran 20 folds. In each fold, 19 subjects contributed training data (roughly 3768 epochs pooled) and the remaining subject served as the test set (around 200 epochs). Standardization zero mean, unit variance was computed on training data only and then applied to the held-out subject. We ran everything on a laptop (13th Gen Intel i5-13420H, 16~GB RAM); no GPU acceleration was used. Random seed was fixed at 42 for reproducibility. Full parameter tables appear in Appendix~A.
 
 \subsection{Evaluation metrics}
 We report AUC (area under the ROC curve) as the primary metric because accuracy is misleading when classes are imbalanced 4:1. Mean and standard deviation are computed across the 20 LOSO folds. Scripts to regenerate these numbers are in the repository.
@@ -126,7 +126,7 @@ Table~\ref{tab:auc} compares methods. EEGNet reached a LOSO AUC of $0.57 \pm 0.1
 
 \begin{table}[H]
 \centering
-\caption{Classification comparison (LOSO cross-validation, 20 folds).}\label{tab:auc}
+\caption{Classification comparison (LOSO cross-validation, 20 folds). Accuracy is reported for completeness but is misleading due to class imbalance (see text).}\label{tab:auc}
 \begin{tabular}{lccc}
 \toprule
 Method & AUC (mean $\pm$ std) & Accuracy & Setting \\
