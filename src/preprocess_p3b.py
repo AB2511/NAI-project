@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 # Path to your dataset
-RAW_DIR = "data/erp_core_p3b/"
+RAW_DIR = "data/raw_p3b/"
 OUT_DIR = "data/processed_p3b/"
 os.makedirs(OUT_DIR, exist_ok=True)
 

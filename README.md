@@ -129,7 +129,13 @@ python src/preprocess_p3b.py
 python src/run_loso_training.py
 ```
 
-### 5. Run Real-Time System
+### 5. Evaluate Model
+
+```bash
+python evaluate_model.py
+```
+
+### 6. Run Real-Time System
 
 ```bash
 python src/acquisition/lsl_acquire.py
@@ -142,16 +148,25 @@ streamlit run src/dashboard/app.py
 # 📁 Project Structure
 
 ```
-src/
- ├── acquisition/         LSL data streaming
- ├── preprocessing/       ERP + filtering
- ├── models/              EEGNet + baselines
- ├── inference/           Real-time deep learning server
- ├── dashboard/           Cognitive state UI
-
-figures/final/            Publication-quality results
-results/                  Model outputs
-data/                     User-provided EEG data
+NAI-project/
+├── src/                     # Core implementation
+│   ├── acquisition/         # LSL data streaming
+│   ├── preprocessing/       # ERP + filtering  
+│   ├── models/              # EEGNet + baselines
+│   ├── inference/           # Real-time deep learning server
+│   ├── dashboard/           # Cognitive state UI
+│   ├── preprocess_p3b.py    # Data preprocessing
+│   └── run_loso_training.py # LOSO training pipeline
+├── figures/                 # Publication-quality results
+├── results/                 # Model outputs
+├── models/                  # Trained models
+├── notebooks/               # Analysis notebooks
+├── data/                    # User-provided EEG data
+├── evaluate_model.py        # Model evaluation
+├── research_paper.tex       # Research paper
+├── README.md               # This file
+├── requirements.txt        # Dependencies
+└── LICENSE                 # MIT License
 ```
 
 ---

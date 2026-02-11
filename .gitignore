@@ -41,3 +41,56 @@ data/processed_p3b/sub-*
 # Temporary analysis files
 check_*.py
 get_exact_channels.py
+
+# Analysis and duplicate files (cleaned up)
+analyze_ml_baselines.py
+calculate_loso_summary.py
+create_synthetic_p300.py
+demo_backend.py
+download_dataset.py
+erp_plotting_p3b.py
+generate_final_figures.py
+generate_paper.py
+http_backend.py
+quick_demo.py
+run_full_system.ps1
+run_ml_inference.py
+run_ml_training.py
+run_nai_system.py
+run_oddball_experiment.py
+simple_demo.py
+simple_topomap_p3b.py
+test_dataset.py
+topomap_p3b.py
+train_classifier.py
+train_cnn_demo.py
+train_improved_classifier.py
+
+# Extra documentation files
+CNN_TRAINING_README.md
+DEPLOYMENT_GUIDE.md
+ENVIRONMENT_SETUP.md
+ML_PIPELINE_README.md
+ML_PIPELINE_SUMMARY.md
+PAPER_ANALYSIS_GUIDE.md
+
+# Standalone figure files (should be in figures/)
+Figure_1.png
+
+# Local analysis files
+*.txt
+scientific_*.py
+*_analysis.py
+*_synthesis.py
+mechanism_analysis.py
+deep_scientific_analysis.py
+test_solutions.py
+signal_variability_analysis.py
+run_complete_analysis.py
+cross_subject_failure_analysis.py
+research_paper_ieee.tex
+artifact_control_experiments.py
+complete_scientific_synthesis.py
+
+# Tools directory (development only)
+tools/
